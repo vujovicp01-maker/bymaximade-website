@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bymaximade — Realistic AI content for brands and creators</title>
+  <meta name="description" content="bymaximade creates realistic AI content for brands, creators, and businesses — AI UGC videos, AI avatars, realistic visuals, product videos, and short form content." />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              DEFAULT: '#2563EB',
+              hover: '#1E54D8',
+            },
+            ink: {
+              900: '#0a0a0a',
+              800: '#111111',
+              700: '#171717',
+              500: '#a1a1a1',
+              300: '#d4d4d4',
+              100: '#fafafa',
+            },
+            line: 'rgba(255,255,255,0.10)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-ink-900 text-ink-100 font-sans antialiased selection:bg-white selection:text-black">
+
+  <!-- ============== NAV ============== -->
+  <header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="mx-auto max-w-7xl px-6 md:px-10 py-5 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2 group" aria-label="BYMD — bymaximade">
+        <img src="./assets/logo.png?v=1" alt="BYMD" class="h-14 w-14 object-contain transition-transform group-hover:scale-105" />
+        <span class="hidden sm:inline text-sm text-ink-500 tracking-tight">bymaximade</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-10 text-sm text-ink-300">
+        <a href="#services" class="hover:text-white transition-colors">Services</a>
+        <a href="#community" class="hover:text-white transition-colors">Community</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </nav>
+
+      <a href="#contact" class="hidden md:inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-white hover:bg-white hover:text-black transition-colors">
+        Book a project
+        <span aria-hidden="true">→</span>
+      </a>
+
+      <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+        <span class="block w-5 h-px bg-white transition-transform"></span>
+        <span class="block w-5 h-px bg-white transition-opacity"></span>
+        <span class="block w-5 h-px bg-white transition-transform"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-ink-900 border-t border-line">
+      <nav class="px-6 py-6 flex flex-col gap-5 text-base text-ink-300">
+        <a href="#services" class="hover:text-white">Services</a>
+        <a href="#community" class="hover:text-white">Community</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+        <a href="#contact" class="mt-2 inline-flex w-fit items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-white">
+          Book a project →
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============== HERO ============== -->
+  <section id="top" class="relative pt-40 md:pt-48 pb-24 md:pb-32 overflow-hidden">
+    <div class="absolute inset-0 -z-10 grain"></div>
+    <div class="absolute inset-x-0 top-0 -z-10 h-[60vh] bg-gradient-to-b from-white/[0.04] via-transparent to-transparent"></div>
+
+    <div class="mx-auto max-w-7xl px-6 md:px-10">
+      <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-8">— bymaximade studio</p>
+
+      <h1 class="reveal font-sans font-light leading-[1.02] tracking-tight text-[clamp(2.75rem,7vw,5.75rem)]">
+        Realistic AI content<br />
+        <span class="text-ink-500">for brands and creators.</span>
+      </h1>
+
+      <p class="reveal mt-8 max-w-xl text-ink-300 text-base md:text-lg leading-relaxed">
+        We make AI visuals, AI videos, AI UGC, avatars, product content, and short form videos for Instagram, TikTok, and ads — clean, modern, and ready to post.
+      </p>
+
+      <div class="reveal mt-10 flex flex-wrap items-center gap-3">
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 text-sm font-medium hover:bg-ink-300 transition-colors">
+          Book a project
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href="https://www.skool.com/next-creators-community-4099/about" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm text-white hover:bg-white/5 transition-colors">
+          Join the community
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SERVICES ============== -->
+  <section id="services" class="py-24 md:py-32 border-t border-line bg-ink-800">
+    <div class="mx-auto max-w-7xl px-6 md:px-10">
+      <div class="grid md:grid-cols-12 gap-10 md:gap-16 mb-16 md:mb-24">
+        <div class="md:col-span-4">
+          <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">01 — Services</p>
+          <h2 class="reveal font-sans font-light text-[clamp(2rem,4vw,3rem)] leading-[1.05]">
+            What we<br /><span class="text-ink-500">create.</span>
+          </h2>
+        </div>
+        <div class="md:col-span-7 md:col-start-6 flex items-end">
+          <p class="reveal text-ink-300 text-base md:text-lg leading-relaxed">
+            We focus on AI visuals, AI videos, AI UGC, avatars, product content, and short form videos — built to look real, clean, and ready to post.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-line">
+        <!-- service card template -->
+        <div class="reveal group p-8 border-b border-line lg:border-r">
+          <p class="text-xs text-ink-500 mb-6">01</p>
+          <h3 class="font-sans text-xl font-medium tracking-tight mb-3">AI UGC videos</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">Realistic user-style content that feels native to TikTok, Reels, and Shorts.</p>
+        </div>
+        <div class="reveal group p-8 border-b border-line lg:border-r">
+          <p class="text-xs text-ink-500 mb-6">02</p>
+          <h3 class="font-sans text-xl font-medium tracking-tight mb-3">AI avatars</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">Custom avatars for talking-head content, ads, and ongoing creator output.</p>
+        </div>
+        <div class="reveal group p-8 border-b border-line lg:border-r">
+          <p class="text-xs text-ink-500 mb-6">03</p>
+          <h3 class="font-sans text-xl font-medium tracking-tight mb-3">Realistic AI visuals</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">Photo-real imagery for campaigns, lookbooks, and editorial-grade brand work.</p>
+        </div>
+        <div class="reveal group p-8 border-b border-line">
+          <p class="text-xs text-ink-500 mb-6">04</p>
+          <h3 class="font-sans text-xl font-medium tracking-tight mb-3">Product videos</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">High-quality product showcases tailored for e-commerce and paid social.</p>
+        </div>
+
+        <div class="reveal group p-8 border-b border-line lg:border-b-0 lg:border-r">
+          <p class="text-xs text-ink-500 mb-6">05</p>
+          <h3 class="font-sans text-xl font-medium tracking-tight mb-3">Short form content</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">Punchy, scroll-stopping shorts built for Instagram, TikTok, and YouTube.</p>
+        </div>
+        <div class="reveal group p-8 border-b border-line lg:border-b-0 lg:border-r">
+          <p class="text-xs text-ink-500 mb-6">06</p>
+          <h3 class="font-sans text-xl font-medium tracking-tight mb-3">AI video concepts</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">Creative concepts and storyboards crafted around your product or brand.</p>
+        </div>
+        <div class="reveal group p-8 border-b border-line lg:border-b-0 lg:border-r">
+          <p class="text-xs text-ink-500 mb-6">07</p>
+          <h3 class="font-sans text-xl font-medium tracking-tight mb-3">Prompts & workflows</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">Reusable prompt structures and production workflows you can run yourself.</p>
+        </div>
+        <div class="reveal group p-8">
+          <p class="text-xs text-ink-500 mb-6">08</p>
+          <h3 class="font-sans text-xl font-medium tracking-tight mb-3">Editing & strategy</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">Editing direction and creative strategy to make every asset earn its place.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== APPROACH ============== -->
+  <section class="py-24 md:py-32 border-t border-line">
+    <div class="mx-auto max-w-5xl px-6 md:px-10 text-center">
+      <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-6">— Our approach</p>
+      <p class="reveal font-sans font-light text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.2]">
+        Our goal is to make AI content that looks <span class="text-brand">real</span>, clean, modern, and ready to post.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============== COMMUNITY ============== -->
+  <section id="community" class="py-24 md:py-32 border-t border-line bg-ink-800">
+    <div class="mx-auto max-w-7xl px-6 md:px-10">
+      <div class="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
+        <div class="md:col-span-5">
+          <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">02 — Community</p>
+          <h2 class="reveal font-sans font-light text-[clamp(2rem,4vw,3rem)] leading-[1.05] mb-6">
+            The Skool<br /><span class="text-ink-500">community.</span>
+          </h2>
+          <p class="reveal text-ink-300 leading-relaxed mb-8">
+            Our Skool community teaches creators how to make realistic AI visuals and videos — and turn it into a real skill.
+          </p>
+          <a href="https://www.skool.com/next-creators-community-4099/about" target="_blank" rel="noopener" class="reveal inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 text-sm font-medium hover:bg-ink-300 transition-colors">
+            Join the community
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="md:col-span-6 md:col-start-7">
+          <p class="reveal text-sm text-ink-500 mb-6">Inside, members get</p>
+          <ul class="grid grid-cols-2 gap-x-6 gap-y-3 text-ink-300">
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-line"><span class="text-xs text-ink-500">01</span> Lessons</li>
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-line"><span class="text-xs text-ink-500">02</span> Breakdowns</li>
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-line"><span class="text-xs text-ink-500">03</span> Prompts</li>
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-line"><span class="text-xs text-ink-500">04</span> Workflows</li>
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-line"><span class="text-xs text-ink-500">05</span> Templates</li>
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-line"><span class="text-xs text-ink-500">06</span> Tool guides</li>
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-b border-line"><span class="text-xs text-ink-500">07</span> Support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CONTACT ============== -->
+  <section id="contact" class="py-24 md:py-32 border-t border-line">
+    <div class="mx-auto max-w-7xl px-6 md:px-10">
+      <div class="grid md:grid-cols-12 gap-12 md:gap-16">
+        <div class="md:col-span-5">
+          <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">03 — Book a project</p>
+          <h2 class="reveal font-sans font-light text-[clamp(2rem,4vw,3rem)] leading-[1.05] mb-6">
+            Send us<br /><span class="text-ink-500">your idea.</span>
+          </h2>
+          <p class="reveal text-ink-300 leading-relaxed mb-6">
+            Work with bymaximade if you need AI content for your brand, product, campaign, or personal brand.
+          </p>
+          <p class="reveal text-ink-300 leading-relaxed">
+            Send us your idea, product, or reference — and we'll help turn it into high quality AI content.
+          </p>
+          <p class="reveal mt-10 text-sm text-ink-500">Or email us directly</p>
+          <a href="mailto:bymaximade@gmail.com" class="reveal block text-white text-lg hover:underline underline-offset-4">bymaximade@gmail.com</a>
+        </div>
+
+        <div class="md:col-span-6 md:col-start-7">
+          <form id="contact-form" class="reveal space-y-6">
+            <div>
+              <label for="name" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Name</label>
+              <input id="name" name="name" type="text" required class="w-full bg-transparent border-b border-line py-3 text-white placeholder-ink-500 focus:outline-none focus:border-brand transition-colors" placeholder="Your name" />
+            </div>
+
+            <div>
+              <label for="email" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Email</label>
+              <input id="email" name="email" type="email" required class="w-full bg-transparent border-b border-line py-3 text-white placeholder-ink-500 focus:outline-none focus:border-brand transition-colors" placeholder="you@domain.com" />
+            </div>
+
+            <div>
+              <label for="project-type" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Project type</label>
+              <select id="project-type" name="project-type" required class="w-full bg-transparent border-b border-line py-3 text-white focus:outline-none focus:border-brand transition-colors appearance-none">
+                <option value="" class="bg-ink-900">Select one</option>
+                <option value="AI UGC" class="bg-ink-900">AI UGC</option>
+                <option value="AI ads" class="bg-ink-900">AI ads</option>
+                <option value="AI avatars" class="bg-ink-900">AI avatars</option>
+                <option value="Product visuals" class="bg-ink-900">Product visuals</option>
+                <option value="Short form videos" class="bg-ink-900">Short form videos</option>
+                <option value="Creative concepts" class="bg-ink-900">Creative concepts</option>
+                <option value="Other" class="bg-ink-900">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Project brief</label>
+              <textarea id="message" name="message" rows="5" required class="w-full bg-transparent border-b border-line py-3 text-white placeholder-ink-500 focus:outline-none focus:border-brand transition-colors resize-none" placeholder="Tell us about your idea, product, or reference..."></textarea>
+            </div>
+
+            <button type="submit" class="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 text-sm font-medium hover:bg-ink-300 transition-colors">
+              Send inquiry
+              <span aria-hidden="true">→</span>
+            </button>
+
+            <p id="form-status" class="text-sm text-ink-500 hidden"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="border-t border-line py-12 md:py-16">
+    <div class="mx-auto max-w-7xl px-6 md:px-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <img src="./assets/logo.png?v=1" alt="BYMD" class="h-20 w-20 object-contain" />
+            <span class="text-sm text-ink-500 tracking-tight">bymaximade</span>
+          </div>
+          <p class="text-sm text-ink-300 leading-relaxed">
+            BYMD LLC | 30N Gould St, Sheridan 82801 Wyoming USA
+          </p>
+          <p class="text-sm text-ink-300 leading-relaxed mt-1">
+            Contact: <a href="mailto:bymaximade@gmail.com" class="hover:text-white underline-offset-4 hover:underline">bymaximade@gmail.com</a>
+          </p>
+        </div>
+
+        <div class="text-sm text-ink-500">
+          © 2026 BYMD LLC. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
