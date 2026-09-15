@@ -19,22 +19,10 @@
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
           colors: {
-            brand: {
-              DEFAULT: '#2563EB',
-              hover: '#1E54D8',
-            },
-            ink: {
-              900: '#0a0a0a',
-              800: '#111111',
-              700: '#171717',
-              500: '#a1a1a1',
-              300: '#d4d4d4',
-              100: '#fafafa',
-            },
+            brand: { DEFAULT: '#2563EB', hover: '#1E54D8' },
+            ink: { 900: '#0a0a0a', 800: '#111111', 700: '#171717', 500: '#a1a1a1', 300: '#d4d4d4', 100: '#fafafa' },
             line: 'rgba(255,255,255,0.10)',
           },
         },
@@ -56,13 +44,15 @@
       </a>
 
       <nav class="hidden md:flex items-center gap-10 text-sm text-ink-300">
+        <a href="#work" class="hover:text-white transition-colors">Work</a>
         <a href="#services" class="hover:text-white transition-colors">Services</a>
+        <a href="#partners" class="hover:text-white transition-colors">Partners</a>
         <a href="#community" class="hover:text-white transition-colors">Community</a>
-        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+        <a href="#apply" class="hover:text-white transition-colors">Apply</a>
       </nav>
 
-      <a href="#contact" class="hidden md:inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-white hover:bg-white hover:text-black transition-colors">
-        Book a project
+      <a href="#apply" class="hidden md:inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-white hover:bg-white hover:text-black transition-colors">
+        Apply
         <span aria-hidden="true">→</span>
       </a>
 
@@ -73,50 +63,79 @@
       </button>
     </div>
 
-    <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-ink-900 border-t border-line">
       <nav class="px-6 py-6 flex flex-col gap-5 text-base text-ink-300">
+        <a href="#work" class="hover:text-white">Work</a>
         <a href="#services" class="hover:text-white">Services</a>
+        <a href="#partners" class="hover:text-white">Partners</a>
         <a href="#community" class="hover:text-white">Community</a>
-        <a href="#contact" class="hover:text-white">Contact</a>
-        <a href="#contact" class="mt-2 inline-flex w-fit items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-white">
-          Book a project →
-        </a>
+        <a href="#apply" class="hover:text-white">Apply</a>
+        <a href="#apply" class="mt-2 inline-flex w-fit items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-white">Apply →</a>
       </nav>
     </div>
   </header>
 
   <!-- ============== HERO ============== -->
-  <section id="top" class="relative pt-40 md:pt-48 pb-24 md:pb-32 overflow-hidden">
+  <section id="top" class="relative pt-32 md:pt-44 pb-16 md:pb-24 overflow-hidden">
     <div class="absolute inset-0 -z-10 grain"></div>
+    <div class="glow" aria-hidden="true"></div>
     <div class="absolute inset-x-0 top-0 -z-10 h-[60vh] bg-gradient-to-b from-white/[0.04] via-transparent to-transparent"></div>
 
-    <div class="mx-auto max-w-7xl px-6 md:px-10">
-      <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-8">— bymaximade studio</p>
+    <div class="mx-auto max-w-7xl px-6 md:px-10 grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div class="lg:col-span-7">
+        <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-8">— bymaximade studio</p>
 
-      <h1 class="reveal font-sans font-light leading-[1.02] tracking-tight text-[clamp(2.75rem,7vw,5.75rem)]">
-        Realistic AI content<br />
-        <span class="text-ink-500">for brands and creators.</span>
-      </h1>
+        <h1 class="font-sans font-light leading-[1.02] tracking-tight text-[clamp(2.4rem,6.5vw,5.5rem)]">
+          <span class="words">Realistic AI content</span><br />
+          <span class="words text-ink-500" data-delay="3">that looks shot, not generated.</span>
+        </h1>
 
-      <p class="reveal mt-8 max-w-xl text-ink-300 text-base md:text-lg leading-relaxed">
-        We make AI visuals, AI videos, AI UGC, avatars, product content, and short form videos for Instagram, TikTok, and ads — clean, modern, and ready to post.
-      </p>
+        <p class="reveal mt-8 max-w-xl text-ink-300 text-base md:text-lg leading-relaxed">
+          AI UGC, avatars, product videos, and short form content for brands and creators — built to pass as real, and ready to post.
+        </p>
 
-      <div class="reveal mt-10 flex flex-wrap items-center gap-3">
-        <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 text-sm font-medium hover:bg-ink-300 transition-colors">
-          Book a project
-          <span aria-hidden="true">→</span>
-        </a>
-        <a href="https://www.skool.com/next-creators-community-4099/about" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm text-white hover:bg-white/5 transition-colors">
-          Join the community
-        </a>
+        <div class="reveal mt-10 flex flex-wrap items-center gap-3">
+          <a href="#apply" class="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 text-sm font-medium hover:bg-ink-300 transition-colors">
+            See if we're a fit
+            <span aria-hidden="true">→</span>
+          </a>
+          <a href="#work" class="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm text-white hover:bg-white/5 transition-colors">
+            Watch the work
+          </a>
+        </div>
+      </div>
+
+      <!-- Video wall. Drop MP4s into assets/videos/ and swap a placeholder div for
+           <video class="tile" autoplay muted loop playsinline src="assets/videos/x.mp4"></video> -->
+      <div id="work" class="lg:col-span-5 reveal">
+        <div class="wall" aria-label="Selected work">
+          <div class="wall-col">
+            <div class="tile"><span>AI UGC</span></div>
+            <div class="tile"><span>Avatar</span></div>
+          </div>
+          <div class="wall-col wall-col--up">
+            <div class="tile"><span>Product</span></div>
+            <div class="tile"><span>Short form</span></div>
+          </div>
+          <div class="wall-col">
+            <div class="tile"><span>AI ad</span></div>
+            <div class="tile"><span>Visual</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ============== MARQUEE ============== -->
+  <div class="marquee border-y border-line py-4 text-xs uppercase tracking-[0.25em] text-ink-500" aria-hidden="true">
+    <div class="marquee-track">
+      <span>AI UGC</span><span>AI avatars</span><span>Product videos</span><span>Short form</span><span>AI ads</span><span>Realistic visuals</span><span>Creative concepts</span>
+      <span>AI UGC</span><span>AI avatars</span><span>Product videos</span><span>Short form</span><span>AI ads</span><span>Realistic visuals</span><span>Creative concepts</span>
+    </div>
+  </div>
+
   <!-- ============== SERVICES ============== -->
-  <section id="services" class="py-24 md:py-32 border-t border-line bg-ink-800">
+  <section id="services" class="py-24 md:py-32 bg-ink-800">
     <div class="mx-auto max-w-7xl px-6 md:px-10">
       <div class="grid md:grid-cols-12 gap-10 md:gap-16 mb-16 md:mb-24">
         <div class="md:col-span-4">
@@ -133,44 +152,42 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-line">
-        <!-- service card template -->
-        <div class="reveal group p-8 border-b border-line lg:border-r">
+        <div class="reveal tilt group p-8 border-b border-line lg:border-r">
           <p class="text-xs text-ink-500 mb-6">01</p>
           <h3 class="font-sans text-xl font-medium tracking-tight mb-3">AI UGC videos</h3>
           <p class="text-sm text-ink-300 leading-relaxed">Realistic user-style content that feels native to TikTok, Reels, and Shorts.</p>
         </div>
-        <div class="reveal group p-8 border-b border-line lg:border-r">
+        <div class="reveal tilt group p-8 border-b border-line lg:border-r">
           <p class="text-xs text-ink-500 mb-6">02</p>
           <h3 class="font-sans text-xl font-medium tracking-tight mb-3">AI avatars</h3>
           <p class="text-sm text-ink-300 leading-relaxed">Custom avatars for talking-head content, ads, and ongoing creator output.</p>
         </div>
-        <div class="reveal group p-8 border-b border-line lg:border-r">
+        <div class="reveal tilt group p-8 border-b border-line lg:border-r">
           <p class="text-xs text-ink-500 mb-6">03</p>
           <h3 class="font-sans text-xl font-medium tracking-tight mb-3">Realistic AI visuals</h3>
           <p class="text-sm text-ink-300 leading-relaxed">Photo-real imagery for campaigns, lookbooks, and editorial-grade brand work.</p>
         </div>
-        <div class="reveal group p-8 border-b border-line">
+        <div class="reveal tilt group p-8 border-b border-line">
           <p class="text-xs text-ink-500 mb-6">04</p>
           <h3 class="font-sans text-xl font-medium tracking-tight mb-3">Product videos</h3>
           <p class="text-sm text-ink-300 leading-relaxed">High-quality product showcases tailored for e-commerce and paid social.</p>
         </div>
-
-        <div class="reveal group p-8 border-b border-line lg:border-b-0 lg:border-r">
+        <div class="reveal tilt group p-8 border-b border-line lg:border-b-0 lg:border-r">
           <p class="text-xs text-ink-500 mb-6">05</p>
           <h3 class="font-sans text-xl font-medium tracking-tight mb-3">Short form content</h3>
           <p class="text-sm text-ink-300 leading-relaxed">Punchy, scroll-stopping shorts built for Instagram, TikTok, and YouTube.</p>
         </div>
-        <div class="reveal group p-8 border-b border-line lg:border-b-0 lg:border-r">
+        <div class="reveal tilt group p-8 border-b border-line lg:border-b-0 lg:border-r">
           <p class="text-xs text-ink-500 mb-6">06</p>
           <h3 class="font-sans text-xl font-medium tracking-tight mb-3">AI video concepts</h3>
           <p class="text-sm text-ink-300 leading-relaxed">Creative concepts and storyboards crafted around your product or brand.</p>
         </div>
-        <div class="reveal group p-8 border-b border-line lg:border-b-0 lg:border-r">
+        <div class="reveal tilt group p-8 border-b border-line lg:border-b-0 lg:border-r">
           <p class="text-xs text-ink-500 mb-6">07</p>
           <h3 class="font-sans text-xl font-medium tracking-tight mb-3">Prompts & workflows</h3>
           <p class="text-sm text-ink-300 leading-relaxed">Reusable prompt structures and production workflows you can run yourself.</p>
         </div>
-        <div class="reveal group p-8">
+        <div class="reveal tilt group p-8">
           <p class="text-xs text-ink-500 mb-6">08</p>
           <h3 class="font-sans text-xl font-medium tracking-tight mb-3">Editing & strategy</h3>
           <p class="text-sm text-ink-300 leading-relaxed">Editing direction and creative strategy to make every asset earn its place.</p>
@@ -179,22 +196,90 @@
     </div>
   </section>
 
-  <!-- ============== APPROACH ============== -->
+  <!-- ============== WHO WE WORK WITH ============== -->
   <section class="py-24 md:py-32 border-t border-line">
-    <div class="mx-auto max-w-5xl px-6 md:px-10 text-center">
-      <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-6">— Our approach</p>
-      <p class="reveal font-sans font-light text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.2]">
-        Our goal is to make AI content that looks <span class="text-brand">real</span>, clean, modern, and ready to post.
-      </p>
+    <div class="mx-auto max-w-7xl px-6 md:px-10">
+      <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">02 — Who we work with</p>
+      <h2 class="reveal font-sans font-light text-[clamp(2rem,4vw,3rem)] leading-[1.05] mb-12 max-w-2xl">
+        We keep our client list small<br /><span class="text-ink-500">so every project gets real attention.</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-px bg-line border border-line">
+        <div class="reveal bg-ink-900 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.2em] text-brand mb-6">This is for you if</p>
+          <ul class="space-y-4 text-ink-300">
+            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">01</span>You have a product, service, or personal brand that already sells.</li>
+            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">02</span>You need content every month, not one video for a test.</li>
+            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">03</span>You care that AI content looks real, not "AI-looking".</li>
+            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">04</span>You can make decisions and give feedback within days.</li>
+          </ul>
+        </div>
+        <div class="reveal bg-ink-900 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.2em] text-ink-500 mb-6">Probably not for you if</p>
+          <ul class="space-y-4 text-ink-300">
+            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">01</span>You want a free sample before committing to anything.</li>
+            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">02</span>You don't have a product or offer yet.</li>
+            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">03</span><span>You want to learn the tools yourself — <a href="https://www.skool.com/next-creators-community-4099/about" target="_blank" rel="noopener" class="text-white underline underline-offset-4">the community</a> is the better fit.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PROCESS ============== -->
+  <section class="py-20 md:py-24 border-t border-line bg-ink-800">
+    <div class="mx-auto max-w-7xl px-6 md:px-10 grid md:grid-cols-3 gap-10">
+      <div class="reveal">
+        <p class="text-4xl font-light text-ink-500 mb-4">01</p>
+        <h3 class="text-lg font-medium mb-2">Apply in 2 minutes</h3>
+        <p class="text-sm text-ink-300 leading-relaxed">Five quick questions so we know what you need before we talk.</p>
+      </div>
+      <div class="reveal">
+        <p class="text-4xl font-light text-ink-500 mb-4">02</p>
+        <h3 class="text-lg font-medium mb-2">We reply within 24h</h3>
+        <p class="text-sm text-ink-300 leading-relaxed">If it's a fit, you get a scope and price by email. No sales call required.</p>
+      </div>
+      <div class="reveal">
+        <p class="text-4xl font-light text-ink-500 mb-4">03</p>
+        <h3 class="text-lg font-medium mb-2">First concepts in 5 days</h3>
+        <p class="text-sm text-ink-300 leading-relaxed">You review, we refine, then we ship content ready to post.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PARTNERS ============== -->
+  <section id="partners" class="py-24 md:py-32 border-t border-line">
+    <div class="mx-auto max-w-7xl px-6 md:px-10">
+      <div class="grid md:grid-cols-12 gap-10 md:gap-16 mb-14">
+        <div class="md:col-span-5">
+          <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">03 — Partners</p>
+          <h2 class="reveal font-sans font-light text-[clamp(2rem,4vw,3rem)] leading-[1.05]">
+            Platforms we<br /><span class="text-ink-500">create with.</span>
+          </h2>
+        </div>
+        <div class="md:col-span-6 md:col-start-7 flex items-end">
+          <p class="reveal text-ink-300 text-base md:text-lg leading-relaxed">
+            We work with AI video and UGC platforms as a creative partner — showcase content, launch campaigns, tutorials, and creator collaborations. Building a tool in this space? <a href="#apply" class="text-white underline underline-offset-4">Let's talk.</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Add a partner: copy one <a>, set href + name. Add data-logo="assets/partners/x.svg" later to swap the wordmark for a logo. -->
+      <div class="reveal grid grid-cols-2 md:grid-cols-4 gap-px bg-line border border-line">
+        <a href="https://higgsfield.ai" target="_blank" rel="noopener" class="partner">Higgsfield<span>AI video</span></a>
+        <a href="https://www.arcads.ai" target="_blank" rel="noopener" class="partner">Arcads<span>AI UGC ads</span></a>
+        <a href="https://www.makeugc.ai" target="_blank" rel="noopener" class="partner">MakeUGC<span>AI UGC</span></a>
+        <a href="#apply" class="partner partner--cta">Your platform<span>Partner with us →</span></a>
+      </div>
     </div>
   </section>
 
   <!-- ============== COMMUNITY ============== -->
-  <section id="community" class="py-24 md:py-32 border-t border-line bg-ink-800">
+  <section id="community" class="py-24 md:py-32 border-t border-line">
     <div class="mx-auto max-w-7xl px-6 md:px-10">
       <div class="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
         <div class="md:col-span-5">
-          <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">02 — Community</p>
+          <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">04 — Community</p>
           <h2 class="reveal font-sans font-light text-[clamp(2rem,4vw,3rem)] leading-[1.05] mb-6">
             The Skool<br /><span class="text-ink-500">community.</span>
           </h2>
@@ -223,62 +308,131 @@
     </div>
   </section>
 
-  <!-- ============== CONTACT ============== -->
-  <section id="contact" class="py-24 md:py-32 border-t border-line">
+  <!-- ============== APPLY ============== -->
+  <section id="apply" class="py-24 md:py-32 border-t border-line bg-ink-800 relative overflow-hidden">
+    <div class="glow glow--small" aria-hidden="true"></div>
     <div class="mx-auto max-w-7xl px-6 md:px-10">
       <div class="grid md:grid-cols-12 gap-12 md:gap-16">
         <div class="md:col-span-5">
-          <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">03 — Book a project</p>
+          <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">05 — Apply</p>
           <h2 class="reveal font-sans font-light text-[clamp(2rem,4vw,3rem)] leading-[1.05] mb-6">
-            Send us<br /><span class="text-ink-500">your idea.</span>
+            See if<br /><span class="text-ink-500">we're a fit.</span>
           </h2>
           <p class="reveal text-ink-300 leading-relaxed mb-6">
-            Work with bymaximade if you need AI content for your brand, product, campaign, or personal brand.
-          </p>
-          <p class="reveal text-ink-300 leading-relaxed">
-            Send us your idea, product, or reference — and we'll help turn it into high quality AI content.
+            Five questions, two minutes. We read every application and reply within 24 hours.
           </p>
           <p class="reveal mt-10 text-sm text-ink-500">Or email us directly</p>
           <a href="mailto:bymaximade@gmail.com" class="reveal block text-white text-lg hover:underline underline-offset-4">bymaximade@gmail.com</a>
         </div>
 
         <div class="md:col-span-6 md:col-start-7">
-          <form id="contact-form" class="reveal space-y-6">
-            <div>
-              <label for="name" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Name</label>
-              <input id="name" name="name" type="text" required class="w-full bg-transparent border-b border-line py-3 text-white placeholder-ink-500 focus:outline-none focus:border-brand transition-colors" placeholder="Your name" />
+          <form id="apply-form" class="reveal wizard" novalidate>
+            <!-- Web3Forms: paste your access key below (get it at web3forms.com with bymaximade@gmail.com) -->
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+            <input type="hidden" name="subject" value="New inquiry — bymaximade.com" />
+            <input type="hidden" name="from_name" value="bymaximade.com" />
+            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="need" />
+            <input type="hidden" name="who" />
+            <input type="hidden" name="budget" />
+            <input type="hidden" name="timeline" />
+
+            <div class="flex items-center justify-between text-xs text-ink-500 mb-3">
+              <span id="step-label">Step 1 of 5</span>
+              <button type="button" id="step-back" class="hover:text-white transition-colors invisible">← Back</button>
+            </div>
+            <div class="progress"><i id="progress-bar" style="width:20%"></i></div>
+
+            <div class="steps">
+              <fieldset class="step is-active" data-step="1" data-field="need" data-multi>
+                <legend class="q">What do you need?</legend>
+                <p class="hint">Pick everything that applies.</p>
+                <div class="chips">
+                  <button type="button" class="chip" data-value="AI UGC">AI UGC</button>
+                  <button type="button" class="chip" data-value="AI ads">AI ads</button>
+                  <button type="button" class="chip" data-value="AI avatars">AI avatars</button>
+                  <button type="button" class="chip" data-value="Product visuals">Product visuals</button>
+                  <button type="button" class="chip" data-value="Short form">Short form</button>
+                  <button type="button" class="chip" data-value="Creative concepts">Creative concepts</button>
+                  <button type="button" class="chip" data-value="Partnership / collaboration">Partnership / collaboration</button>
+                  <button type="button" class="chip" data-value="Other">Other</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="step" data-step="2" data-field="who">
+                <legend class="q">Who are you?</legend>
+                <p class="hint">So we can talk in your language.</p>
+                <div class="chips">
+                  <button type="button" class="chip" data-value="Brand / e-commerce">Brand / e-commerce</button>
+                  <button type="button" class="chip" data-value="Agency">Agency</button>
+                  <button type="button" class="chip" data-value="Creator / personal brand">Creator / personal brand</button>
+                  <button type="button" class="chip" data-value="AI platform / tool">AI platform / tool</button>
+                  <button type="button" class="chip" data-value="Other">Other</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="step" data-step="3" data-field="budget">
+                <legend class="q">What's your monthly content budget?</legend>
+                <p class="hint">A rough number is fine. It helps us scope the right offer.</p>
+                <div class="chips">
+                  <button type="button" class="chip" data-value="Under $1k">Under $1k</button>
+                  <button type="button" class="chip" data-value="$1k – $3k">$1k – $3k</button>
+                  <button type="button" class="chip" data-value="$3k – $10k">$3k – $10k</button>
+                  <button type="button" class="chip" data-value="$10k+">$10k+</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="step" data-step="4" data-field="timeline">
+                <legend class="q">When do you want to start?</legend>
+                <p class="hint">We usually have room within two weeks.</p>
+                <div class="chips">
+                  <button type="button" class="chip" data-value="ASAP">ASAP</button>
+                  <button type="button" class="chip" data-value="This month">This month</button>
+                  <button type="button" class="chip" data-value="1 – 3 months">1 – 3 months</button>
+                  <button type="button" class="chip" data-value="Just exploring">Just exploring</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="step" data-step="5" data-field="details">
+                <legend class="q">Last step — where do we reply?</legend>
+                <div class="space-y-5 mt-2">
+                  <div>
+                    <label for="name" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Name</label>
+                    <input id="name" name="name" type="text" required autocomplete="name" class="field" placeholder="Your name" />
+                  </div>
+                  <div>
+                    <label for="email" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Email</label>
+                    <input id="email" name="email" type="email" required autocomplete="email" class="field" placeholder="you@domain.com" />
+                  </div>
+                  <div>
+                    <label for="handle" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Website or Instagram <span class="normal-case tracking-normal">(optional)</span></label>
+                    <input id="handle" name="handle" type="text" class="field" placeholder="@yourbrand or yourbrand.com" />
+                  </div>
+                  <div>
+                    <label for="brief" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Anything else? <span class="normal-case tracking-normal">(optional)</span></label>
+                    <textarea id="brief" name="brief" rows="3" class="field resize-none" placeholder="Product, reference, deadline…"></textarea>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="step" data-step="done">
+                <p class="q" id="done-title">Got it.</p>
+                <p class="hint" id="done-text">We'll reply within 24 hours.</p>
+                <a id="done-community" href="https://www.skool.com/next-creators-community-4099/about" target="_blank" rel="noopener" class="hidden mt-6 inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm text-white hover:bg-white hover:text-black transition-colors">
+                  Meanwhile, join the community →
+                </a>
+              </div>
             </div>
 
-            <div>
-              <label for="email" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Email</label>
-              <input id="email" name="email" type="email" required class="w-full bg-transparent border-b border-line py-3 text-white placeholder-ink-500 focus:outline-none focus:border-brand transition-colors" placeholder="you@domain.com" />
+            <p id="step-error" class="text-sm text-white mt-4 min-h-[1.25rem]" aria-live="polite"></p>
+
+            <div class="flex items-center justify-between mt-6" id="step-actions">
+              <span class="text-xs text-ink-500 hidden sm:inline">Press Enter ↵</span>
+              <button type="button" id="step-next" class="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 text-sm font-medium hover:bg-ink-300 transition-colors">
+                Continue
+                <span aria-hidden="true">→</span>
+              </button>
             </div>
-
-            <div>
-              <label for="project-type" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Project type</label>
-              <select id="project-type" name="project-type" required class="w-full bg-transparent border-b border-line py-3 text-white focus:outline-none focus:border-brand transition-colors appearance-none">
-                <option value="" class="bg-ink-900">Select one</option>
-                <option value="AI UGC" class="bg-ink-900">AI UGC</option>
-                <option value="AI ads" class="bg-ink-900">AI ads</option>
-                <option value="AI avatars" class="bg-ink-900">AI avatars</option>
-                <option value="Product visuals" class="bg-ink-900">Product visuals</option>
-                <option value="Short form videos" class="bg-ink-900">Short form videos</option>
-                <option value="Creative concepts" class="bg-ink-900">Creative concepts</option>
-                <option value="Other" class="bg-ink-900">Other</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="message" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Project brief</label>
-              <textarea id="message" name="message" rows="5" required class="w-full bg-transparent border-b border-line py-3 text-white placeholder-ink-500 focus:outline-none focus:border-brand transition-colors resize-none" placeholder="Tell us about your idea, product, or reference..."></textarea>
-            </div>
-
-            <button type="submit" class="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 text-sm font-medium hover:bg-ink-300 transition-colors">
-              Send inquiry
-              <span aria-hidden="true">→</span>
-            </button>
-
-            <p id="form-status" class="text-sm text-ink-500 hidden"></p>
           </form>
         </div>
       </div>
@@ -294,17 +448,12 @@
             <img src="./assets/logo.png?v=1" alt="BYMD" class="h-20 w-20 object-contain" />
             <span class="text-sm text-ink-500 tracking-tight">bymaximade</span>
           </div>
-          <p class="text-sm text-ink-300 leading-relaxed">
-            BYMD LLC | 30N Gould St, Sheridan 82801 Wyoming USA
-          </p>
+          <p class="text-sm text-ink-300 leading-relaxed">BYMD LLC | 30N Gould St, Sheridan 82801 Wyoming USA</p>
           <p class="text-sm text-ink-300 leading-relaxed mt-1">
             Contact: <a href="mailto:bymaximade@gmail.com" class="hover:text-white underline-offset-4 hover:underline">bymaximade@gmail.com</a>
           </p>
         </div>
-
-        <div class="text-sm text-ink-500">
-          © 2026 BYMD LLC. All Rights Reserved.
-        </div>
+        <div class="text-sm text-ink-500">© 2026 BYMD LLC. All Rights Reserved.</div>
       </div>
     </div>
   </footer>

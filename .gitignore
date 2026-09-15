@@ -13,3 +13,7 @@ desktop.ini
 .env
 .env.local
 *.log
+
+# Local tooling state
+.claude/
+.claude-flow/
