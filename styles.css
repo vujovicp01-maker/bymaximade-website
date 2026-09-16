@@ -110,6 +110,16 @@ video.tile { padding: 0; display: block; }
 }
 .badge--ghost { background: transparent; color: #9a9590; border: 1px solid rgba(255,255,255,0.18); }
 
+/* BYMD wordmark */
+.wordmark {
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: #FBF5F0;
+}
+.wordmark--lg { font-size: 2.4rem; }
+
 /* Nav — scroll state */
 #nav.scrolled {
   background-color: rgba(0, 0, 0, 0.85);
