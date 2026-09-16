@@ -136,7 +136,7 @@
       bar.style.width = `${Math.min(index + 1, TOTAL) / TOTAL * 100}%`;
       backBtn.classList.toggle('invisible', index === 0 || isDone);
       actions.classList.toggle('hidden', isDone);
-      nextBtn.firstChild.textContent = index === TOTAL - 1 ? 'Send application ' : 'Continue ';
+      nextBtn.firstChild.textContent = index === TOTAL - 1 ? 'Send my application ' : 'Continue ';
       setError('');
       const focusable = to.querySelector('.chip, input, textarea');
       if (focusable) focusable.focus({ preventScroll: true });
