@@ -177,8 +177,8 @@
 
     document.getElementById('done-title').textContent = `Got it, ${name.split(' ')[0]}.`;
     document.getElementById('done-text').textContent = sent
-      ? "We'll reply within 24 hours."
-      : 'Your email app should open with the application. Hit send and we reply within 24 hours.';
+      ? "We'll get back to you within 48 hours."
+      : 'Your email app should open with the application. Hit send and we get back to you within 48 hours.';
     document.getElementById('done-community').classList.toggle('hidden', data.get('budget') !== 'Under $1k');
     show(steps.length - 1);
   }

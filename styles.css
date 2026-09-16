@@ -5,6 +5,11 @@
 
 html { scroll-behavior: smooth; }
 
+/* Brand fonts. Drop the licensed files into assets/fonts/ and uncomment:
+@font-face { font-family: "Recoleta"; src: url("assets/fonts/Recoleta-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Coolvetica"; src: url("assets/fonts/Coolvetica-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+Until then Fraunces stands in for Recoleta and Archivo for Coolvetica. */
+
 body {
     -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -90,7 +95,7 @@ video.tile { padding: 0; display: block; }
   background: #D6F91F;
   color: #000;
   font-size: 0.7rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.3rem 0.6rem;
@@ -102,9 +107,9 @@ video.tile { padding: 0; display: block; }
 
 /* BYMD wordmark */
 .wordmark {
-  font-weight: 900;
+  font-weight: 700;
   font-size: 1.5rem;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.04em;
   line-height: 1;
   color: #FBF5F0;
 }
@@ -168,7 +173,7 @@ video.tile { padding: 0; display: block; }
 @keyframes step-in  { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
 @keyframes step-out { to   { opacity: 0; transform: translateX(-24px); } }
 
-.q { font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 0.4rem; }
+.q { font-family: Recoleta, Fraunces, Georgia, serif; font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 0.4rem; }
 .hint { font-size: 0.875rem; color: #9a9590; margin-bottom: 1.25rem; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }

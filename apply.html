@@ -27,14 +27,14 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans: ['Nunito', 'Arial Rounded MT Bold', 'system-ui', 'sans-serif'] },
+          fontFamily: { sans: ['Coolvetica', 'Archivo', 'Helvetica Neue', 'Arial', 'sans-serif'], display: ['Recoleta', 'Fraunces', 'Georgia', 'serif'] },
           colors: {
             brand: { DEFAULT: '#D6F91F', hover: '#C4E61A' },
             ink: { 900: '#000000', 800: '#0a0a0a', 700: '#141414', 500: '#9a9590', 300: '#d9d3ce', 100: '#FBF5F0' },
@@ -64,11 +64,11 @@
     <div class="absolute inset-0 -z-10 grain"></div>
     <div class="mx-auto max-w-3xl px-6">
       <p class="reveal mb-6"><span class="badge">5 questions · 2 minutes</span></p>
-      <h1 class="reveal font-sans font-extrabold tracking-[-0.04em] leading-[1.0] text-[clamp(2.4rem,6vw,4.5rem)] mb-5">
-        See if<br /><span class="text-ink-500">you qualify.</span>
+      <h1 class="reveal font-display font-bold tracking-[-0.02em] leading-[1.0] text-[clamp(2.4rem,6vw,4.5rem)] mb-5">
+        Tell us about<br /><span class="text-ink-500">your project.</span>
       </h1>
       <p class="reveal text-ink-300 text-base md:text-lg leading-relaxed mb-12 max-w-xl">
-        If it's a fit, you get a scope and a price within 24 hours.
+        We get back to you within 48 hours. We take on a handful of collaborations each month, so the earlier you reach out, the better.
       </p>
 
           <form id="apply-form" class="reveal wizard" novalidate>
@@ -138,7 +138,7 @@
               </fieldset>
 
               <fieldset class="step" data-step="5" data-field="details">
-                <legend class="q">Last step — where do we send the scope?</legend>
+                <legend class="q">Last step — where do we reply?</legend>
                 <div class="space-y-5 mt-2">
                   <div>
                     <label for="name" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Name</label>
@@ -153,15 +153,15 @@
                     <input id="handle" name="handle" type="text" class="field" placeholder="@yourbrand or yourbrand.com" />
                   </div>
                   <div>
-                    <label for="brief" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Anything else? <span class="normal-case tracking-normal">(optional)</span></label>
-                    <textarea id="brief" name="brief" rows="3" class="field resize-none" placeholder="Product, reference, deadline…"></textarea>
+                    <label for="brief" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Any additional information <span class="normal-case tracking-normal">(optional)</span></label>
+                    <textarea id="brief" name="brief" rows="3" class="field resize-none" placeholder="Vision, timeline, brand guidelines, references…"></textarea>
                   </div>
                 </div>
               </fieldset>
 
               <div class="step" data-step="done">
                 <p class="q" id="done-title">Got it.</p>
-                <p class="hint" id="done-text">We'll reply within 24 hours.</p>
+                <p class="hint" id="done-text">We'll get back to you within 48 hours.</p>
                 <a id="done-community" href="https://www.skool.com/next-creators-community-4099/about" target="_blank" rel="noopener" class="hidden mt-6 inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm text-ink-100 hover:bg-ink-100 hover:text-black transition-colors">
                   Meanwhile, join the community →
                 </a>
@@ -181,8 +181,7 @@
           </form>
 
       <div class="reveal mt-12 pt-8 border-t border-line">
-        <p class="text-sm text-ink-500 mb-2">Or reach us directly</p>
-        <a href="https://wa.me/38268403631" target="_blank" rel="noopener" class="block text-white text-lg hover:underline underline-offset-4">WhatsApp +382 68 403 631</a>
+        <p class="text-sm text-ink-500 mb-2">Or email us directly</p>
         <a href="mailto:bymaximade@gmail.com" class="block text-white text-lg hover:underline underline-offset-4">bymaximade@gmail.com</a>
       </div>
     </div>
