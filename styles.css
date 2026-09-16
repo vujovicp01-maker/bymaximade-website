@@ -55,7 +55,6 @@ body {
   padding: 12px;
   overflow: hidden;
 }
-.tile span { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #6b6b6b; }
 video.tile { padding: 0; display: block; }
 
 /* Phone: one row of three tiles so the hero fits a screen, bigger tap targets */
@@ -65,14 +64,6 @@ video.tile { padding: 0; display: block; }
   .chip { padding: 0.75rem 1.1rem; }
   .steps { overflow-x: clip; }
 }
-
-/* Cursor tilt on service cards (--rx/--ry set by script.js) */
-.tilt {
-  transform: perspective(800px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-  transition: transform 0.25s ease, background-color 0.25s ease;
-  transform-style: preserve-3d;
-}
-.tilt:hover { background-color: rgba(255, 255, 255, 0.03); }
 
 /* Partner tiles */
 .partner {
@@ -207,6 +198,5 @@ textarea:-webkit-autofill {
   .reveal { opacity: 1; transform: none; transition: none; }
   .wall-col { animation: none; }
   .words .w { animation: none; opacity: 1; transform: none; }
-  .tilt { transform: none !important; }
   .step.is-active, .step.is-leaving { animation: none; }
 }

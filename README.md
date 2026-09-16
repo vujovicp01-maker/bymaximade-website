@@ -48,57 +48,14 @@ The form on the homepage submits via `mailto:bymaximade@gmail.com`. When a visit
 
 ---
 
-## Deploy to GitHub Pages
+## Deploy
 
-1. Create a new public repository on GitHub.
-2. Push this folder to it:
+The site is hosted on Cloudflare Workers (static assets, config in `wrangler.jsonc`) and connected to this GitHub repo. Every push to `main` deploys to https://bymaximade.com within about a minute. DNS is on Cloudflare; nothing else to configure.
 
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial site"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/<repo-name>.git
-   git push -u origin main
-   ```
+## Apply form
 
-3. On GitHub: **Settings → Pages → Build and deployment**
-   - **Source:** Deploy from a branch
-   - **Branch:** `main` / `(root)` → **Save**
-4. Wait ~30 seconds, then visit `https://<your-username>.github.io/<repo-name>`.
+The 5-step form posts to Web3Forms and lands in the studio Gmail inbox. The access key sits in `index.html` and is public by design. If Web3Forms is unreachable the form falls back to opening the visitor's email app.
 
----
+## Hero videos
 
-## Connect a custom domain
-
-1. In your domain registrar's DNS settings, add records pointing to GitHub Pages:
-
-   **For an apex domain (e.g. `bymaximade.com`)** — add four `A` records:
-   ```
-   185.199.108.153
-   185.199.109.153
-   185.199.110.153
-   185.199.111.153
-   ```
-
-   **For a `www` subdomain** — add one `CNAME` record:
-   ```
-   www  →  <your-username>.github.io
-   ```
-
-2. In your repo, create a file named `CNAME` (no extension) at the root with one line — your domain:
-   ```
-   bymaximade.com
-   ```
-   Commit and push.
-
-3. On GitHub: **Settings → Pages → Custom domain** → enter the domain → **Save**.
-4. Once DNS resolves, check **Enforce HTTPS** for a free SSL certificate.
-
-DNS can take anywhere from a few minutes to 24 hours to propagate.
-
----
-
-## License
-
-© 2026 BYMD LLC. All Rights Reserved.
+Six 5-second loops live in `assets/videos/` as 720x1280 H.264 with a JPG poster each. Phones show only the first tile of each column (ugc, product, ad). To swap a clip, replace the mp4 and jpg with the same name and push.

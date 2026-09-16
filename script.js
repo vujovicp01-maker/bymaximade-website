@@ -1,7 +1,7 @@
 /* ===========================================================
    bymaximade — site interactions
    - Nav scroll state, mobile menu, reveal-on-scroll
-   - Hero word reveal, card tilt
+   - Hero word reveal
    - Apply wizard → Web3Forms (fallback: mailto)
    =========================================================== */
 
@@ -54,23 +54,6 @@
       .map((w) => `<span class="w" style="--i:${wordIndex++}">${w}</span>`)
       .join(' ');
   });
-
-  // ----- Cursor tilt on service cards -----
-  if (!reducedMotion && window.matchMedia('(pointer: fine)').matches) {
-    document.querySelectorAll('.tilt').forEach((card) => {
-      card.addEventListener('mousemove', (e) => {
-        const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5;
-        const y = (e.clientY - r.top) / r.height - 0.5;
-        card.style.setProperty('--ry', `${x * 8}deg`);
-        card.style.setProperty('--rx', `${-y * 8}deg`);
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.setProperty('--rx', '0deg');
-        card.style.setProperty('--ry', '0deg');
-      });
-    });
-  }
 
   // ----- Apply wizard -----
   const form = document.getElementById('apply-form');
