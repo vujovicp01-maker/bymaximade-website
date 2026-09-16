@@ -6,8 +6,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-feature-settings: "ss01", "cv11";
-  -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -91,8 +90,8 @@ video.tile { padding: 0; display: block; }
   background: #D6F91F;
   color: #000;
   font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.3rem 0.6rem;
   border-radius: 4px;
@@ -103,9 +102,9 @@ video.tile { padding: 0; display: block; }
 
 /* BYMD wordmark */
 .wordmark {
-  font-weight: 800;
-  font-size: 1.4rem;
-  letter-spacing: -0.05em;
+  font-weight: 900;
+  font-size: 1.5rem;
+  letter-spacing: -0.06em;
   line-height: 1;
   color: #FBF5F0;
 }
@@ -139,7 +138,7 @@ video.tile { padding: 0; display: block; }
 @keyframes step-in  { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
 @keyframes step-out { to   { opacity: 0; transform: translateX(-24px); } }
 
-.q { font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 300; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 0.4rem; }
+.q { font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 0.4rem; }
 .hint { font-size: 0.875rem; color: #9a9590; margin-bottom: 1.25rem; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
