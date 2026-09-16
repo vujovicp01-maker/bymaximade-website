@@ -64,38 +64,35 @@
 
 <body class="bg-ink-900 text-ink-100 font-sans antialiased selection:bg-brand selection:text-black">
 
-  <!-- ============== NAV ============== -->
   <header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
     <div class="mx-auto max-w-7xl px-6 md:px-10 py-5 flex items-center justify-between">
-      <a href="#top" class="flex items-center gap-2 group" aria-label="BYMD — bymaximade">
+      <a href="/" class="flex items-center gap-2 group" aria-label="BYMD — bymaximade">
         <span class="wordmark">BYMD</span>
         <span class="hidden sm:inline text-sm text-ink-500 tracking-tight ml-1">bymaximade</span>
       </a>
-
       <nav class="hidden md:flex items-center gap-10 text-sm text-ink-300">
-        <a href="#work" class="hover:text-white transition-colors">Work</a>
-        <a href="#apply" class="hover:text-white transition-colors">Apply</a>
+        <a href="/#work" class="hover:text-white transition-colors">Work</a>
+        <a href="/#services" class="hover:text-white transition-colors">Services</a>
+        <a href="/#community" class="hover:text-white transition-colors">Community</a>
         <a href="https://www.instagram.com/bymaximade" target="_blank" rel="noopener" class="hover:text-white transition-colors">Instagram ↗</a>
       </nav>
-
-      <a href="#apply" class="hidden md:inline-flex items-center gap-2 rounded-full bg-brand text-black px-4 py-2 text-sm font-semibold hover:bg-brand-hover transition-colors">
-        Apply
+      <a href="/apply" class="hidden md:inline-flex items-center gap-2 rounded-full bg-brand text-black px-4 py-2 text-sm font-bold hover:bg-brand-hover transition-colors">
+        Project inquiry
         <span aria-hidden="true">→</span>
       </a>
-
       <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
         <span class="block w-5 h-px bg-white transition-transform"></span>
         <span class="block w-5 h-px bg-white transition-opacity"></span>
         <span class="block w-5 h-px bg-white transition-transform"></span>
       </button>
     </div>
-
     <div id="mobile-menu" class="hidden md:hidden bg-ink-900 border-t border-line">
       <nav class="px-6 py-6 flex flex-col gap-5 text-base text-ink-300">
-        <a href="#work" class="hover:text-white">Work</a>
-        <a href="#apply" class="hover:text-white">Apply</a>
+        <a href="/#work" class="hover:text-white">Work</a>
+        <a href="/#services" class="hover:text-white">Services</a>
+        <a href="/#community" class="hover:text-white">Community</a>
         <a href="https://www.instagram.com/bymaximade" target="_blank" rel="noopener" class="hover:text-white">Instagram ↗</a>
-        <a href="#apply" class="mt-2 inline-flex w-fit items-center gap-2 rounded-full bg-brand text-black px-4 py-2 text-sm font-semibold">Apply →</a>
+        <a href="/apply" class="mt-2 inline-flex w-fit items-center gap-2 rounded-full bg-brand text-black px-4 py-2 text-sm font-bold">Project inquiry →</a>
       </nav>
     </div>
   </header>
@@ -119,16 +116,14 @@
         </p>
 
         <div class="reveal mt-10 flex flex-wrap items-center gap-3">
-          <a href="#apply" class="inline-flex items-center gap-2 rounded-full bg-ink-100 text-black px-6 py-3 text-sm font-medium hover:bg-ink-300 transition-colors">
-            See if I qualify
+          <a href="/apply" class="inline-flex items-center gap-2 rounded-full bg-ink-100 text-black px-6 py-3 text-sm font-bold hover:bg-ink-300 transition-colors">
+            Start a project inquiry
             <span aria-hidden="true">→</span>
           </a>
+          <a href="#work" class="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm text-white hover:bg-white/5 transition-colors">
+            Watch the work
+          </a>
         </div>
-
-        <a href="https://www.instagram.com/bymaximade" target="_blank" rel="noopener" class="reveal mt-10 inline-flex items-center gap-3 text-sm text-ink-500 hover:text-white transition-colors">
-          See the work that <span class="text-white font-medium text-base">41,000+</span> people follow
-          <span aria-hidden="true">↗</span>
-        </a>
       </div>
 
       <!-- Video wall. Phones show only the first tile of each column. -->
@@ -151,166 +146,127 @@
     </div>
   </section>
 
-  <!-- ============== WHO WE WORK WITH ============== -->
-  <section class="py-24 md:py-32 border-t border-line">
+  <!-- ============== SERVICES ============== -->
+  <section id="services" class="py-24 md:py-32 border-t border-line bg-ink-800">
     <div class="mx-auto max-w-7xl px-6 md:px-10">
-      <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">01 — Who we work with</p>
-      <h2 class="reveal font-sans font-extrabold tracking-[-0.03em] text-[clamp(2rem,4vw,3rem)] leading-[1.05] mb-12 max-w-2xl">
-        We take on a few brands a month.<br /><span class="text-ink-500">Here's who gets in.</span>
-      </h2>
-
-      <div class="grid md:grid-cols-2 gap-px bg-line border border-line">
-        <div class="reveal bg-ink-900 p-8 md:p-10">
-          <p class="mb-6"><span class="badge">This is for you if</span></p>
-          <ul class="space-y-4 text-ink-300">
-            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">01</span>You sell a product, a service, or yourself, and it already sells.</li>
-            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">02</span>You need content every month, not one test video.</li>
-            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">03</span>You want AI content nobody can tell is AI.</li>
-            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">04</span>You give feedback in days, not weeks.</li>
-          </ul>
+      <div class="grid md:grid-cols-12 gap-10 md:gap-16 mb-16 md:mb-24">
+        <div class="md:col-span-4">
+          <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">01 — Services</p>
+          <h2 class="reveal font-sans font-extrabold tracking-[-0.03em] text-[clamp(2rem,4vw,3rem)] leading-[1.05]">
+            What we<br /><span class="text-ink-500">make.</span>
+          </h2>
         </div>
-        <div class="reveal bg-ink-900 p-8 md:p-10">
-          <p class="mb-6"><span class="badge badge--ghost">Probably not for you if</span></p>
-          <ul class="space-y-4 text-ink-300">
-            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">01</span>You want a free sample first.</li>
-            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">02</span>You don't have an offer yet.</li>
-            <li class="flex gap-4"><span class="text-ink-500 text-xs pt-1">03</span><span>You want to learn the tools yourself — <a href="https://www.skool.com/next-creators-community-4099/about" target="_blank" rel="noopener" class="text-white underline underline-offset-4">the community</a> is the better fit.</span></li>
+        <div class="md:col-span-7 md:col-start-6 flex items-end">
+          <p class="reveal text-ink-300 text-base md:text-lg leading-relaxed">
+            Everything a brand needs to post every day, made with AI that passes as real.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-line">
+        <div class="reveal p-8 border-b border-line lg:border-r">
+          <p class="text-xs text-ink-500 mb-6">01</p>
+          <h3 class="font-sans text-xl font-bold tracking-tight mb-3">AI UGC videos</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">Creator-style clips that feel native to TikTok and Reels. Nobody spots the AI.</p>
+        </div>
+        <div class="reveal p-8 border-b border-line lg:border-r">
+          <p class="text-xs text-ink-500 mb-6">02</p>
+          <h3 class="font-sans text-xl font-bold tracking-tight mb-3">AI avatars</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">A presenter who shows up every week without a shoot. Same face, same voice, any script.</p>
+        </div>
+        <div class="reveal p-8 border-b border-line lg:border-r">
+          <p class="text-xs text-ink-500 mb-6">03</p>
+          <h3 class="font-sans text-xl font-bold tracking-tight mb-3">Realistic AI visuals</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">Campaign and lookbook imagery that passes for a photo shoot.</p>
+        </div>
+        <div class="reveal p-8 border-b border-line">
+          <p class="text-xs text-ink-500 mb-6">04</p>
+          <h3 class="font-sans text-xl font-bold tracking-tight mb-3">Product videos</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">Splashes, orbits, reveals. Your product, shot like a commercial, without the studio.</p>
+        </div>
+        <div class="reveal p-8 border-b border-line lg:border-b-0 lg:border-r">
+          <p class="text-xs text-ink-500 mb-6">05</p>
+          <h3 class="font-sans text-xl font-bold tracking-tight mb-3">Short form content</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">Hooks built to stop the scroll on Instagram, TikTok, and YouTube.</p>
+        </div>
+        <div class="reveal p-8 border-b border-line lg:border-b-0 lg:border-r">
+          <p class="text-xs text-ink-500 mb-6">06</p>
+          <h3 class="font-sans text-xl font-bold tracking-tight mb-3">AI video concepts</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">Storyboards and concepts around your product before we make a frame.</p>
+        </div>
+        <div class="reveal p-8 border-b border-line lg:border-b-0 lg:border-r">
+          <p class="text-xs text-ink-500 mb-6">07</p>
+          <h3 class="font-sans text-xl font-bold tracking-tight mb-3">Prompts & workflows</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">The exact prompts and pipelines we use, handed over so your team can run them.</p>
+        </div>
+        <div class="reveal p-8 ">
+          <p class="text-xs text-ink-500 mb-6">08</p>
+          <h3 class="font-sans text-xl font-bold tracking-tight mb-3">Editing & strategy</h3>
+          <p class="text-sm text-ink-300 leading-relaxed">Cuts, captions, and a posting plan so every asset actually gets used.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== APPROACH ============== -->
+  <section class="py-24 md:py-32 border-t border-line">
+    <div class="mx-auto max-w-5xl px-6 md:px-10 text-center">
+      <p class="reveal mb-6"><span class="badge">Our rule</span></p>
+      <p class="reveal font-sans font-extrabold tracking-[-0.03em] text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.15]">
+        If you can tell it's AI,<br /><span class="text-ink-500">we didn't do our job.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============== COMMUNITY ============== -->
+  <section id="community" class="py-24 md:py-32 border-t border-line bg-ink-800">
+    <div class="mx-auto max-w-7xl px-6 md:px-10">
+      <div class="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
+        <div class="md:col-span-5">
+          <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">02 — Community</p>
+          <h2 class="reveal font-sans font-extrabold tracking-[-0.03em] text-[clamp(2rem,4vw,3rem)] leading-[1.05] mb-6">
+            Want to make it<br /><span class="text-ink-500">yourself?</span>
+          </h2>
+          <p class="reveal text-ink-300 leading-relaxed mb-8">
+            The Skool community is where we teach the exact prompts, tools, and workflows behind every video on this page.
+          </p>
+          <a href="https://www.skool.com/next-creators-community-4099/about" target="_blank" rel="noopener" class="reveal inline-flex items-center gap-2 rounded-full bg-ink-100 text-black px-6 py-3 text-sm font-bold hover:bg-ink-300 transition-colors">
+            Join the community
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="md:col-span-6 md:col-start-7">
+          <p class="reveal text-sm text-ink-500 mb-6">Inside, members get</p>
+          <ul class="grid grid-cols-2 gap-x-6 gap-y-3 text-ink-300">
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-line"><span class="text-xs text-ink-500">01</span> Lessons</li>
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-line"><span class="text-xs text-ink-500">02</span> Breakdowns</li>
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-line"><span class="text-xs text-ink-500">03</span> Prompts</li>
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-line"><span class="text-xs text-ink-500">04</span> Workflows</li>
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-line"><span class="text-xs text-ink-500">05</span> Templates</li>
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-line"><span class="text-xs text-ink-500">06</span> Tool guides</li>
+            <li class="reveal flex items-baseline gap-3 py-3 border-t border-b border-line"><span class="text-xs text-ink-500">07</span> Support</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============== APPLY ============== -->
-  <section id="apply" class="py-24 md:py-32 border-t border-line bg-ink-800 relative overflow-hidden">
-    <div class="mx-auto max-w-7xl px-6 md:px-10">
-      <div class="grid md:grid-cols-12 gap-12 md:gap-16">
-        <div class="md:col-span-5">
-          <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">02 — Apply</p>
-          <h2 class="reveal font-sans font-extrabold tracking-[-0.03em] text-[clamp(2rem,4vw,3rem)] leading-[1.05] mb-6">
-            See if<br /><span class="text-ink-500">you qualify.</span>
-          </h2>
-          <p class="reveal text-ink-300 leading-relaxed mb-6">
-            5 questions, 2 minutes. If it's a fit, you get a scope and a price within 24 hours.
-          </p>
-        </div>
-
-        <div class="md:col-span-6 md:col-start-7">
-          <form id="apply-form" class="reveal wizard" novalidate>
-            <input type="hidden" name="access_key" value="6de902cd-fe8d-4cf0-9739-53ab33bfe13f" />
-            <input type="hidden" name="subject" value="New inquiry — bymaximade.com" />
-            <input type="hidden" name="from_name" value="bymaximade.com" />
-            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
-            <input type="hidden" name="need" />
-            <input type="hidden" name="who" />
-            <input type="hidden" name="budget" />
-            <input type="hidden" name="timeline" />
-
-            <div class="flex items-center justify-between text-xs text-ink-500 mb-3">
-              <span id="step-label">Step 1 of 5</span>
-              <button type="button" id="step-back" class="hover:text-white transition-colors invisible">← Back</button>
-            </div>
-            <div class="progress"><i id="progress-bar" style="width:20%"></i></div>
-
-            <div class="steps">
-              <fieldset class="step is-active" data-step="1" data-field="need" data-multi>
-                <legend class="q">What do you need?</legend>
-                <p class="hint">Pick everything that applies.</p>
-                <div class="chips">
-                  <button type="button" class="chip" data-value="AI UGC">AI UGC</button>
-                  <button type="button" class="chip" data-value="AI ads">AI ads</button>
-                  <button type="button" class="chip" data-value="AI avatars">AI avatars</button>
-                  <button type="button" class="chip" data-value="Product visuals">Product visuals</button>
-                  <button type="button" class="chip" data-value="Short form">Short form</button>
-                  <button type="button" class="chip" data-value="Creative concepts">Creative concepts</button>
-                  <button type="button" class="chip" data-value="Partnership / collaboration">Partnership / collaboration</button>
-                  <button type="button" class="chip" data-value="Other">Other</button>
-                </div>
-              </fieldset>
-
-              <fieldset class="step" data-step="2" data-field="who">
-                <legend class="q">Who are you?</legend>
-                <p class="hint">So we can talk in your language.</p>
-                <div class="chips">
-                  <button type="button" class="chip" data-value="Brand / e-commerce">Brand / e-commerce</button>
-                  <button type="button" class="chip" data-value="Agency">Agency</button>
-                  <button type="button" class="chip" data-value="Creator / personal brand">Creator / personal brand</button>
-                  <button type="button" class="chip" data-value="AI platform / tool">AI platform / tool</button>
-                  <button type="button" class="chip" data-value="Other">Other</button>
-                </div>
-              </fieldset>
-
-              <fieldset class="step" data-step="3" data-field="budget">
-                <legend class="q">What's your monthly content budget?</legend>
-                <p class="hint">A rough number is fine. It helps us scope the right offer.</p>
-                <div class="chips">
-                  <button type="button" class="chip" data-value="Under $1k">Under $1k</button>
-                  <button type="button" class="chip" data-value="$1k – $3k">$1k – $3k</button>
-                  <button type="button" class="chip" data-value="$3k – $10k">$3k – $10k</button>
-                  <button type="button" class="chip" data-value="$10k+">$10k+</button>
-                </div>
-              </fieldset>
-
-              <fieldset class="step" data-step="4" data-field="timeline">
-                <legend class="q">When do you want to start?</legend>
-                <p class="hint">We usually have room within two weeks.</p>
-                <div class="chips">
-                  <button type="button" class="chip" data-value="ASAP">ASAP</button>
-                  <button type="button" class="chip" data-value="This month">This month</button>
-                  <button type="button" class="chip" data-value="1 – 3 months">1 – 3 months</button>
-                  <button type="button" class="chip" data-value="Just exploring">Just exploring</button>
-                </div>
-              </fieldset>
-
-              <fieldset class="step" data-step="5" data-field="details">
-                <legend class="q">Last step — where do we send the scope?</legend>
-                <div class="space-y-5 mt-2">
-                  <div>
-                    <label for="name" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Name</label>
-                    <input id="name" name="name" type="text" required autocomplete="name" class="field" placeholder="Your name" />
-                  </div>
-                  <div>
-                    <label for="email" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Email</label>
-                    <input id="email" name="email" type="email" required autocomplete="email" class="field" placeholder="you@domain.com" />
-                  </div>
-                  <div>
-                    <label for="handle" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Website or Instagram <span class="normal-case tracking-normal">(optional)</span></label>
-                    <input id="handle" name="handle" type="text" class="field" placeholder="@yourbrand or yourbrand.com" />
-                  </div>
-                  <div>
-                    <label for="brief" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Anything else? <span class="normal-case tracking-normal">(optional)</span></label>
-                    <textarea id="brief" name="brief" rows="3" class="field resize-none" placeholder="Product, reference, deadline…"></textarea>
-                  </div>
-                </div>
-              </fieldset>
-
-              <div class="step" data-step="done">
-                <p class="q" id="done-title">Got it.</p>
-                <p class="hint" id="done-text">We'll reply within 24 hours.</p>
-                <a id="done-community" href="https://www.skool.com/next-creators-community-4099/about" target="_blank" rel="noopener" class="hidden mt-6 inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm text-ink-100 hover:bg-ink-100 hover:text-black transition-colors">
-                  Meanwhile, join the community →
-                </a>
-              </div>
-            </div>
-
-            <p id="step-error" class="text-sm text-white mt-4 min-h-[1.25rem]" aria-live="polite"></p>
-            <p class="text-xs text-ink-500 mt-2">We only use your details to reply to this application. Nothing is shared or added to a list.</p>
-
-            <div class="flex items-center justify-between mt-6" id="step-actions">
-              <span class="text-xs text-ink-500 hidden sm:inline">Press Enter ↵</span>
-              <button type="button" id="step-next" class="inline-flex items-center gap-2 rounded-full bg-ink-100 text-black px-6 py-3 text-sm font-medium hover:bg-ink-300 transition-colors">
-                Continue
-                <span aria-hidden="true">→</span>
-              </button>
-            </div>
-          </form>
-
-          <div class="reveal mt-12 pt-8 border-t border-line">
-            <p class="text-sm text-ink-500 mb-2">Or reach us directly</p>
-            <a href="https://wa.me/38268403631" target="_blank" rel="noopener" class="block text-white text-lg hover:underline underline-offset-4">WhatsApp +382 68 403 631</a>
-            <a href="mailto:bymaximade@gmail.com" class="block text-white text-lg hover:underline underline-offset-4">bymaximade@gmail.com</a>
-          </div>
-        </div>
+  <!-- ============== APPLY BAND ============== -->
+  <section id="apply" class="py-24 md:py-32 border-t border-line">
+    <div class="mx-auto max-w-7xl px-6 md:px-10 grid md:grid-cols-12 gap-10 items-center">
+      <div class="md:col-span-7">
+        <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">03 — Work with us</p>
+        <h2 class="reveal font-sans font-extrabold tracking-[-0.03em] text-[clamp(2rem,4vw,3rem)] leading-[1.05] mb-4">
+          See if you qualify.
+        </h2>
+        <p class="reveal text-ink-300 leading-relaxed max-w-xl">5 questions, 2 minutes. If it's a fit, you get a scope and a price within 24 hours.</p>
+      </div>
+      <div class="md:col-span-5 md:text-right">
+        <a href="/apply" class="reveal inline-flex items-center gap-2 rounded-full bg-brand text-black px-7 py-4 text-base font-bold hover:bg-brand-hover transition-colors">
+          Start a project inquiry
+          <span aria-hidden="true">→</span>
+        </a>
+        <p class="reveal mt-4 text-sm text-ink-500">Or <a href="https://wa.me/38268403631" target="_blank" rel="noopener" class="text-white hover:underline underline-offset-4">WhatsApp us</a></p>
       </div>
     </div>
   </section>

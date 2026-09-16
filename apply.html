@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project inquiry — bymaximade</title>
+  <meta name="description" content="Project inquiry for bymaximade. 5 questions, 2 minutes. If it is a fit, you get a scope and a price within 24 hours." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://bymaximade.com/apply" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="bymaximade" />
+  <meta property="og:url" content="https://bymaximade.com/apply" />
+  <meta property="og:title" content="bymaximade — Content that looks shot. Delivered in days." />
+  <meta property="og:description" content="No crew, no casting, no reshoots. AI UGC, avatars, and product videos that pass as real. Apply in 2 minutes." />
+  <meta property="og:image" content="https://bymaximade.com/assets/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="bymaximade — Content that looks shot. Delivered in days." />
+  <meta name="twitter:description" content="No crew, no casting, no reshoots. AI UGC, avatars, and product videos that pass as real." />
+  <meta name="twitter:image" content="https://bymaximade.com/assets/og.jpg" />
+
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Nunito', 'Arial Rounded MT Bold', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: { DEFAULT: '#D6F91F', hover: '#C4E61A' },
+            ink: { 900: '#000000', 800: '#0a0a0a', 700: '#141414', 500: '#9a9590', 300: '#d9d3ce', 100: '#FBF5F0' },
+            line: 'rgba(255,255,255,0.10)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-ink-900 text-ink-100 font-sans antialiased selection:bg-brand selection:text-black">
+
+  <header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="mx-auto max-w-3xl px-6 py-5 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2" aria-label="BYMD — bymaximade">
+        <span class="wordmark">BYMD</span>
+        <span class="hidden sm:inline text-sm text-ink-500 tracking-tight ml-1">bymaximade</span>
+      </a>
+      <a href="/" class="text-sm text-ink-500 hover:text-white transition-colors">← Back to site</a>
+    </div>
+  </header>
+
+  <main class="relative pt-32 md:pt-40 pb-16 overflow-hidden">
+    <div class="absolute inset-0 -z-10 grain"></div>
+    <div class="mx-auto max-w-3xl px-6">
+      <p class="reveal mb-6"><span class="badge">5 questions · 2 minutes</span></p>
+      <h1 class="reveal font-sans font-extrabold tracking-[-0.04em] leading-[1.0] text-[clamp(2.4rem,6vw,4.5rem)] mb-5">
+        See if<br /><span class="text-ink-500">you qualify.</span>
+      </h1>
+      <p class="reveal text-ink-300 text-base md:text-lg leading-relaxed mb-12 max-w-xl">
+        If it's a fit, you get a scope and a price within 24 hours.
+      </p>
+
+          <form id="apply-form" class="reveal wizard" novalidate>
+            <input type="hidden" name="access_key" value="6de902cd-fe8d-4cf0-9739-53ab33bfe13f" />
+            <input type="hidden" name="subject" value="New inquiry — bymaximade.com" />
+            <input type="hidden" name="from_name" value="bymaximade.com" />
+            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="need" />
+            <input type="hidden" name="who" />
+            <input type="hidden" name="budget" />
+            <input type="hidden" name="timeline" />
+
+            <div class="flex items-center justify-between text-xs text-ink-500 mb-3">
+              <span id="step-label">Step 1 of 5</span>
+              <button type="button" id="step-back" class="hover:text-white transition-colors invisible">← Back</button>
+            </div>
+            <div class="progress"><i id="progress-bar" style="width:20%"></i></div>
+
+            <div class="steps">
+              <fieldset class="step is-active" data-step="1" data-field="need" data-multi>
+                <legend class="q">What do you need?</legend>
+                <p class="hint">Pick everything that applies.</p>
+                <div class="chips">
+                  <button type="button" class="chip" data-value="AI UGC">AI UGC</button>
+                  <button type="button" class="chip" data-value="AI ads">AI ads</button>
+                  <button type="button" class="chip" data-value="AI avatars">AI avatars</button>
+                  <button type="button" class="chip" data-value="Product visuals">Product visuals</button>
+                  <button type="button" class="chip" data-value="Short form">Short form</button>
+                  <button type="button" class="chip" data-value="Creative concepts">Creative concepts</button>
+                  <button type="button" class="chip" data-value="Partnership / collaboration">Partnership / collaboration</button>
+                  <button type="button" class="chip" data-value="Other">Other</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="step" data-step="2" data-field="who">
+                <legend class="q">Who are you?</legend>
+                <p class="hint">So we can talk in your language.</p>
+                <div class="chips">
+                  <button type="button" class="chip" data-value="Brand / e-commerce">Brand / e-commerce</button>
+                  <button type="button" class="chip" data-value="Agency">Agency</button>
+                  <button type="button" class="chip" data-value="Creator / personal brand">Creator / personal brand</button>
+                  <button type="button" class="chip" data-value="AI platform / tool">AI platform / tool</button>
+                  <button type="button" class="chip" data-value="Other">Other</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="step" data-step="3" data-field="budget">
+                <legend class="q">What's your monthly content budget?</legend>
+                <p class="hint">A rough number is fine. It helps us scope the right offer.</p>
+                <div class="chips">
+                  <button type="button" class="chip" data-value="Under $1k">Under $1k</button>
+                  <button type="button" class="chip" data-value="$1k – $3k">$1k – $3k</button>
+                  <button type="button" class="chip" data-value="$3k – $10k">$3k – $10k</button>
+                  <button type="button" class="chip" data-value="$10k+">$10k+</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="step" data-step="4" data-field="timeline">
+                <legend class="q">When do you want to start?</legend>
+                <p class="hint">We usually have room within two weeks.</p>
+                <div class="chips">
+                  <button type="button" class="chip" data-value="ASAP">ASAP</button>
+                  <button type="button" class="chip" data-value="This month">This month</button>
+                  <button type="button" class="chip" data-value="1 – 3 months">1 – 3 months</button>
+                  <button type="button" class="chip" data-value="Just exploring">Just exploring</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="step" data-step="5" data-field="details">
+                <legend class="q">Last step — where do we send the scope?</legend>
+                <div class="space-y-5 mt-2">
+                  <div>
+                    <label for="name" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Name</label>
+                    <input id="name" name="name" type="text" required autocomplete="name" class="field" placeholder="Your name" />
+                  </div>
+                  <div>
+                    <label for="email" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Email</label>
+                    <input id="email" name="email" type="email" required autocomplete="email" class="field" placeholder="you@domain.com" />
+                  </div>
+                  <div>
+                    <label for="handle" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Website or Instagram <span class="normal-case tracking-normal">(optional)</span></label>
+                    <input id="handle" name="handle" type="text" class="field" placeholder="@yourbrand or yourbrand.com" />
+                  </div>
+                  <div>
+                    <label for="brief" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Anything else? <span class="normal-case tracking-normal">(optional)</span></label>
+                    <textarea id="brief" name="brief" rows="3" class="field resize-none" placeholder="Product, reference, deadline…"></textarea>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="step" data-step="done">
+                <p class="q" id="done-title">Got it.</p>
+                <p class="hint" id="done-text">We'll reply within 24 hours.</p>
+                <a id="done-community" href="https://www.skool.com/next-creators-community-4099/about" target="_blank" rel="noopener" class="hidden mt-6 inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm text-ink-100 hover:bg-ink-100 hover:text-black transition-colors">
+                  Meanwhile, join the community →
+                </a>
+              </div>
+            </div>
+
+            <p id="step-error" class="text-sm text-white mt-4 min-h-[1.25rem]" aria-live="polite"></p>
+            <p class="text-xs text-ink-500 mt-2">We only use your details to reply to this application. Nothing is shared or added to a list.</p>
+
+            <div class="flex items-center justify-between mt-6" id="step-actions">
+              <span class="text-xs text-ink-500 hidden sm:inline">Press Enter ↵</span>
+              <button type="button" id="step-next" class="inline-flex items-center gap-2 rounded-full bg-ink-100 text-black px-6 py-3 text-sm font-medium hover:bg-ink-300 transition-colors">
+                Continue
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </form>
+
+      <div class="reveal mt-12 pt-8 border-t border-line">
+        <p class="text-sm text-ink-500 mb-2">Or reach us directly</p>
+        <a href="https://wa.me/38268403631" target="_blank" rel="noopener" class="block text-white text-lg hover:underline underline-offset-4">WhatsApp +382 68 403 631</a>
+        <a href="mailto:bymaximade@gmail.com" class="block text-white text-lg hover:underline underline-offset-4">bymaximade@gmail.com</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-t border-line py-10">
+    <div class="mx-auto max-w-3xl px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm text-ink-500">
+      <span>© 2026 BYMD LLC</span>
+      <a href="https://www.instagram.com/bymaximade" target="_blank" rel="noopener" class="hover:text-white">@bymaximade ↗</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
