@@ -110,6 +110,36 @@ video.tile { padding: 0; display: block; }
 }
 .wordmark--lg { font-size: 2.4rem; }
 
+/* FAQ accordions (native details/summary) */
+.faq { border-bottom: 1px solid rgba(255, 255, 255, 0.10); }
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #FBF5F0;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 400;
+  color: #9a9590;
+  transition: transform 0.25s, background-color 0.25s, color 0.25s;
+}
+.faq[open] summary::after { transform: rotate(45deg); background: #D6F91F; color: #000; border-color: #D6F91F; }
+
 /* Nav — scroll state */
 #nav.scrolled {
   background-color: rgba(0, 0, 0, 0.85);
