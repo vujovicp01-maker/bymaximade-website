@@ -105,21 +105,20 @@
         </div>
       </div>
 
-      <!-- Video wall. Drop MP4s into assets/videos/ and swap a placeholder div for
-           <video class="tile" autoplay muted loop playsinline src="assets/videos/x.mp4"></video> -->
+      <!-- Video wall. Phones show only the first tile of each column. -->
       <div id="work" class="lg:col-span-5 reveal">
         <div class="wall" aria-label="Selected work">
           <div class="wall-col">
-            <div class="tile"><span>AI UGC</span></div>
-            <div class="tile"><span>Avatar</span></div>
+            <video class="tile" src="assets/videos/ugc.mp4" poster="assets/videos/ugc.jpg" autoplay muted loop playsinline preload="metadata" aria-label="AI UGC"></video>
+            <video class="tile" src="assets/videos/avatar.mp4" poster="assets/videos/avatar.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Avatar"></video>
           </div>
           <div class="wall-col wall-col--up">
-            <div class="tile"><span>Product</span></div>
-            <div class="tile"><span>Short form</span></div>
+            <video class="tile" src="assets/videos/product.mp4" poster="assets/videos/product.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Product"></video>
+            <video class="tile" src="assets/videos/short.mp4" poster="assets/videos/short.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Short form"></video>
           </div>
           <div class="wall-col">
-            <div class="tile"><span>AI ad</span></div>
-            <div class="tile"><span>Visual</span></div>
+            <video class="tile" src="assets/videos/ad.mp4" poster="assets/videos/ad.jpg" autoplay muted loop playsinline preload="metadata" aria-label="AI ad"></video>
+            <video class="tile" src="assets/videos/creator.mp4" poster="assets/videos/creator.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Creator"></video>
           </div>
         </div>
       </div>
