@@ -13,33 +13,10 @@ body {
 
 /* Subtle film grain for the hero — pure SVG, no external asset */
 .grain {
-  background-color: #0a0a0a;
+  background-color: #000000;
   background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   background-size: 200px 200px;
   background-repeat: repeat;
-}
-
-/* Drifting brand glow */
-.glow {
-  position: absolute;
-  z-index: -5;
-  top: -10%;
-  right: -10%;
-  width: 55vw;
-  height: 55vw;
-  max-width: 720px;
-  max-height: 720px;
-  border-radius: 50%;
-  background: #2563EB;
-  opacity: 0.28;
-  filter: blur(110px);
-  animation: drift 22s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-.glow--small { width: 40vw; height: 40vw; opacity: 0.18; top: auto; bottom: -20%; left: -10%; right: auto; }
-@keyframes drift {
-  from { transform: translate(0, 0) scale(1); }
-  to   { transform: translate(-12%, 18%) scale(1.15); }
 }
 
 /* Word-by-word hero reveal (spans injected by script.js) */
@@ -89,12 +66,6 @@ video.tile { padding: 0; display: block; }
   .steps { overflow-x: clip; }
 }
 
-/* Marquee */
-.marquee { overflow: hidden; white-space: nowrap; }
-.marquee-track { display: inline-flex; gap: 3rem; animation: marquee 32s linear infinite; }
-.marquee-track span::after { content: "·"; margin-left: 3rem; }
-@keyframes marquee { to { transform: translateX(-50%); } }
-
 /* Cursor tilt on service cards (--rx/--ry set by script.js) */
 .tilt {
   transform: perspective(800px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
@@ -111,21 +82,37 @@ video.tile { padding: 0; display: block; }
   gap: 6px;
   min-height: 150px;
   padding: 2rem;
-  background: #0a0a0a;
+  background: #000000;
   font-size: clamp(1.25rem, 2vw, 1.6rem);
   font-weight: 500;
   letter-spacing: -0.02em;
-  color: #fafafa;
+  color: #FBF5F0;
   transition: background-color 0.25s, color 0.25s;
 }
-.partner span { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: #a1a1a1; }
-.partner:hover { background: #fafafa; color: #0a0a0a; }
+.partner span { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: #9a9590; }
+.partner:hover { background: #FBF5F0; color: #0a0a0a; }
 .partner:hover span { color: #555; }
-.partner--cta { color: #2563EB; }
+.partner--cta em { font-style: normal; }
+
+/* Lime highlight badge: the only place the accent appears. Black text on lime, never lime text. */
+.badge {
+  display: inline-block;
+  background: #D6F91F;
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  line-height: 1;
+  vertical-align: middle;
+}
+.badge--ghost { background: transparent; color: #9a9590; border: 1px solid rgba(255,255,255,0.18); }
 
 /* Nav — scroll state */
 #nav.scrolled {
-  background-color: rgba(10, 10, 10, 0.85);
+  background-color: rgba(0, 0, 0, 0.85);
   backdrop-filter: saturate(140%) blur(12px);
   -webkit-backdrop-filter: saturate(140%) blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -142,7 +129,7 @@ video.tile { padding: 0; display: block; }
 
 /* ---------- Apply wizard ---------- */
 .progress { height: 2px; background: rgba(255, 255, 255, 0.12); overflow: hidden; }
-.progress i { display: block; height: 100%; background: #2563EB; transition: width 0.45s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.progress i { display: block; height: 100%; background: #D6F91F; transition: width 0.45s cubic-bezier(0.2, 0.7, 0.2, 1); }
 
 .steps { position: relative; margin-top: 2rem; }
 .step { display: none; border: 0; padding: 0; margin: 0; min-width: 0; }
@@ -152,7 +139,7 @@ video.tile { padding: 0; display: block; }
 @keyframes step-out { to   { opacity: 0; transform: translateX(-24px); } }
 
 .q { font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 300; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 0.4rem; }
-.hint { font-size: 0.875rem; color: #a1a1a1; margin-bottom: 1.25rem; }
+.hint { font-size: 0.875rem; color: #9a9590; margin-bottom: 1.25rem; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
@@ -161,12 +148,12 @@ video.tile { padding: 0; display: block; }
   padding: 0.6rem 1rem;
   min-height: 44px;
   font-size: 0.875rem;
-  color: #fafafa;
+  color: #FBF5F0;
   background: transparent;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
 }
 .chip:hover { border-color: rgba(255, 255, 255, 0.5); transform: translateY(-1px); }
-.chip.is-on { background: #fafafa; color: #0a0a0a; border-color: #fafafa; }
+.chip.is-on { background: #D6F91F; color: #000; border-color: #D6F91F; }
 
 .field {
   width: 100%;
@@ -177,8 +164,8 @@ video.tile { padding: 0; display: block; }
   color: #fff;
   transition: border-color 0.2s;
 }
-.field::placeholder { color: #a1a1a1; }
-.field:focus { outline: none; border-color: #2563EB; }
+.field::placeholder { color: #9a9590; }
+.field:focus { outline: none; border-color: #D6F91F; }
 .field.is-invalid { border-color: #fff; }
 
 .wizard.is-sending #step-next { opacity: 0.5; pointer-events: none; }
@@ -188,8 +175,8 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill {
-  -webkit-text-fill-color: #fafafa;
-  -webkit-box-shadow: 0 0 0px 1000px #111111 inset;
+  -webkit-text-fill-color: #FBF5F0;
+  -webkit-box-shadow: 0 0 0px 1000px #0a0a0a inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -208,7 +195,7 @@ textarea:-webkit-autofill {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .glow, .wall-col, .marquee-track { animation: none; }
+  .wall-col { animation: none; }
   .words .w { animation: none; opacity: 1; transform: none; }
   .tilt { transform: none !important; }
   .step.is-active, .step.is-leaving { animation: none; }
