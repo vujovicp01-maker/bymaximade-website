@@ -17,7 +17,7 @@ body {
 
 /* Subtle film grain for the hero — pure SVG, no external asset */
 .grain {
-  background-color: #000000;
+  background-color: #0B0A09;
   background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   background-size: 200px 200px;
   background-repeat: repeat;
@@ -84,7 +84,7 @@ video.tile { padding: 0; display: block; }
   color: #FFEBC5;
   transition: background-color 0.25s, color 0.25s;
 }
-.partner span { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: #9a9590; }
+.partner span { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: #9C9388; }
 .partner:hover { background: #FFEBC5; color: #0a0a0a; }
 .partner:hover span { color: #555; }
 .partner--cta em { font-style: normal; }
@@ -103,7 +103,7 @@ video.tile { padding: 0; display: block; }
   line-height: 1;
   vertical-align: middle;
 }
-.badge--ghost { background: transparent; color: #9a9590; border: 1px solid rgba(255,255,255,0.18); }
+.badge--ghost { background: transparent; color: #9C9388; border: 1px solid rgba(255,255,255,0.18); }
 
 /* BYMD wordmark */
 .wordmark {
@@ -140,7 +140,7 @@ video.tile { padding: 0; display: block; }
   display: grid;
   place-items: center;
   font-weight: 400;
-  color: #9a9590;
+  color: #9C9388;
   transition: transform 0.25s, background-color 0.25s, color 0.25s;
 }
 .faq[open] summary::after { transform: rotate(45deg); background: #FF5A58; color: #000; border-color: #FF5A58; }
@@ -177,7 +177,7 @@ video.tile { padding: 0; display: block; }
 @keyframes step-out { to   { opacity: 0; transform: translateX(-24px); } }
 
 .q { font-family: Recoleta, Fraunces, Georgia, serif; font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 0.4rem; }
-.hint { font-size: 0.875rem; color: #9a9590; margin-bottom: 1.25rem; }
+.hint { font-size: 0.875rem; color: #9C9388; margin-bottom: 1.25rem; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
@@ -202,7 +202,7 @@ video.tile { padding: 0; display: block; }
   color: #FFEBC5;
   transition: border-color 0.2s;
 }
-.field::placeholder { color: #9a9590; }
+.field::placeholder { color: #9C9388; }
 .field:focus { outline: none; border-color: #FF5A58; }
 .field.is-invalid { border-color: #fff; }
 
