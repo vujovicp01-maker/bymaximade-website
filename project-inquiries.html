@@ -138,7 +138,7 @@
               </fieldset>
 
               <fieldset class="step" data-step="5" data-field="details">
-                <legend class="q">Last step — where do we reply?</legend>
+                <legend class="q">Last step — you and the project.</legend>
                 <div class="space-y-5 mt-2">
                   <div>
                     <label for="name" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Name</label>
@@ -149,12 +149,14 @@
                     <input id="email" name="email" type="email" required autocomplete="email" class="field" placeholder="you@domain.com" />
                   </div>
                   <div>
-                    <label for="handle" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Website or Instagram <span class="normal-case tracking-normal">(optional)</span></label>
-                    <input id="handle" name="handle" type="text" class="field" placeholder="@yourbrand or yourbrand.com" />
+                    <label for="handle" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Instagram or website</label>
+                    <input id="handle" name="handle" type="text" required class="field" placeholder="@yourbrand or yourbrand.com" />
+                    <p class="mt-1.5 text-xs text-ink-500">We look at your work before we reply.</p>
                   </div>
                   <div>
-                    <label for="brief" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Any additional information <span class="normal-case tracking-normal">(optional)</span></label>
-                    <textarea id="brief" name="brief" rows="3" class="field resize-none" placeholder="Vision, timeline, brand guidelines, references…"></textarea>
+                    <label for="brief" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">About the project</label>
+                    <textarea id="brief" name="brief" rows="4" required minlength="40" class="field resize-none" placeholder="What you sell, what you want the videos to do, and any references you like."></textarea>
+                    <p class="mt-1.5 text-xs text-ink-500">A couple of sentences. The more you give us, the better the first reply.</p>
                   </div>
                 </div>
               </fieldset>

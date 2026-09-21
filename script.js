@@ -77,6 +77,17 @@
 
   const setError = (msg) => { errorEl.textContent = msg || ''; };
 
+  // Named per field: a generic "check the form" makes the visitor hunt for what is wrong.
+  // The browser only enforces minlength on text the visitor typed, so a pasted or autofilled
+  // one-word brief passes checkValidity(). Length is checked explicitly below.
+  const BRIEF_MIN = 40;
+  const DETAIL_ERROR = {
+    name: 'Add your name.',
+    email: 'Add a valid email so we can reply.',
+    handle: 'Add your Instagram or website — we look before we reply.',
+    brief: 'Tell us about the project. A couple of sentences is enough.',
+  };
+
   // Chip selection → hidden input
   form.querySelectorAll('.step[data-field]').forEach((step) => {
     const hidden = form.elements[step.dataset.field];
@@ -99,14 +110,17 @@
   function validate(step) {
     const field = step.dataset.field;
     if (field === 'details') {
-      let ok = true;
+      let firstBad = null;
       step.querySelectorAll('[required]').forEach((input) => {
-        const bad = !input.checkValidity();
+        const bad = !input.checkValidity() || (input.name === 'brief' && input.value.trim().length < BRIEF_MIN);
         input.classList.toggle('is-invalid', bad);
-        if (bad) ok = false;
+        if (bad && !firstBad) firstBad = input;
       });
-      if (!ok) setError('Add your name and a valid email so we can reply.');
-      return ok;
+      if (firstBad) {
+        setError(DETAIL_ERROR[firstBad.name] || 'Check this field.');
+        firstBad.focus();
+      }
+      return !firstBad;
     }
     if (!form.elements[field].value) {
       setError('Pick at least one option to continue.');
@@ -162,7 +176,12 @@
   async function submit() {
     const data = new FormData(form);
     const name = data.get('name').trim();
-    data.set('subject', `New inquiry — ${name} · ${data.get('budget')}`);
+    const budget = String(data.get('budget') || '');
+    const timeline = String(data.get('timeline') || '');
+    // A star on the ones worth opening first, so the inbox list triages itself without
+    // opening anything: filter Gmail on the star, or on a budget string.
+    const strong = budget !== 'Under $1k' && timeline !== 'Just exploring';
+    data.set('subject', `${strong ? '★ ' : ''}New inquiry — ${name} · ${budget} · ${timeline}`);
     form.classList.add('is-sending');
     setError('Sending…');
 
