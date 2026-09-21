@@ -153,14 +153,17 @@ video.tile { padding: 0; display: block; }
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Reveal-on-scroll animation */
-.reveal {
+/* Reveal-on-scroll. Content starts VISIBLE — script.js adds .pending only to what is still
+   below the fold when it runs, and fades those in. Hiding every .reveal by default left the
+   inquiry page (where every block is a .reveal) black until the Tailwind CDN finished and the
+   script ran: 5 to 8 seconds on a phone, and forever if the script never loads. */
+.reveal.pending {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.9s ease, transform 0.9s ease;
   will-change: opacity, transform;
 }
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal.pending.is-visible { opacity: 1; transform: translateY(0); }
 
 /* ---------- Apply wizard ---------- */
 .progress { height: 2px; background: rgba(255, 255, 255, 0.12); overflow: hidden; }
@@ -229,7 +232,7 @@ textarea:-webkit-autofill {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal, .reveal.pending { opacity: 1; transform: none; transition: none; }
   .wall-col { animation: none; }
   .words .w { animation: none; opacity: 1; transform: none; }
   .step.is-active, .step.is-leaving { animation: none; }

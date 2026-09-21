@@ -41,9 +41,16 @@
         }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach((el) => io.observe(el));
-  } else {
-    revealEls.forEach((el) => el.classList.add('is-visible'));
+    // Armed at load, not now: the Tailwind CDN generates its CSS asynchronously, so before that
+    // the page has no real layout and every element measures as above the fold. Hiding a block
+    // that is below the fold is invisible to the visitor, so arming late costs nothing — and
+    // content is on screen the whole time instead of waiting on this script.
+    const arm = () => revealEls.forEach((el) => {
+      if (el.getBoundingClientRect().top > window.innerHeight) el.classList.add('pending');
+      io.observe(el);
+    });
+    if (document.readyState === 'complete') arm();
+    else window.addEventListener('load', arm, { once: true });
   }
 
   // ----- Hero word-by-word reveal -----
