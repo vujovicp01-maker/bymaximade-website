@@ -81,18 +81,18 @@ video.tile { padding: 0; display: block; }
   font-size: clamp(1.25rem, 2vw, 1.6rem);
   font-weight: 500;
   letter-spacing: -0.02em;
-  color: #FBF5F0;
+  color: #FFEBC5;
   transition: background-color 0.25s, color 0.25s;
 }
 .partner span { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: #9a9590; }
-.partner:hover { background: #FBF5F0; color: #0a0a0a; }
+.partner:hover { background: #FFEBC5; color: #0a0a0a; }
 .partner:hover span { color: #555; }
 .partner--cta em { font-style: normal; }
 
-/* Lime highlight badge: the only place the accent appears. Black text on lime, never lime text. */
+/* Coral highlight badge: the only place the accent appears. Black text on coral, never coral text. */
 .badge {
   display: inline-block;
-  background: #D6F91F;
+  background: #FF5A58;
   color: #000;
   font-size: 0.7rem;
   font-weight: 700;
@@ -111,7 +111,7 @@ video.tile { padding: 0; display: block; }
   font-size: 1.5rem;
   letter-spacing: -0.04em;
   line-height: 1;
-  color: #FBF5F0;
+  color: #FFEBC5;
 }
 .wordmark--lg { font-size: 2.4rem; }
 
@@ -127,7 +127,7 @@ video.tile { padding: 0; display: block; }
   padding: 1.25rem 0;
   font-weight: 700;
   font-size: 1.05rem;
-  color: #FBF5F0;
+  color: #FFEBC5;
 }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after {
@@ -143,7 +143,7 @@ video.tile { padding: 0; display: block; }
   color: #9a9590;
   transition: transform 0.25s, background-color 0.25s, color 0.25s;
 }
-.faq[open] summary::after { transform: rotate(45deg); background: #D6F91F; color: #000; border-color: #D6F91F; }
+.faq[open] summary::after { transform: rotate(45deg); background: #FF5A58; color: #000; border-color: #FF5A58; }
 
 /* Nav — scroll state */
 #nav.scrolled {
@@ -164,7 +164,7 @@ video.tile { padding: 0; display: block; }
 
 /* ---------- Apply wizard ---------- */
 .progress { height: 2px; background: rgba(255, 255, 255, 0.12); overflow: hidden; }
-.progress i { display: block; height: 100%; background: #D6F91F; transition: width 0.45s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.progress i { display: block; height: 100%; background: #FF5A58; transition: width 0.45s cubic-bezier(0.2, 0.7, 0.2, 1); }
 
 .steps { position: relative; margin-top: 2rem; }
 .step { display: none; border: 0; padding: 0; margin: 0; min-width: 0; }
@@ -183,12 +183,12 @@ video.tile { padding: 0; display: block; }
   padding: 0.6rem 1rem;
   min-height: 44px;
   font-size: 0.875rem;
-  color: #FBF5F0;
+  color: #FFEBC5;
   background: transparent;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
 }
 .chip:hover { border-color: rgba(255, 255, 255, 0.5); transform: translateY(-1px); }
-.chip.is-on { background: #D6F91F; color: #000; border-color: #D6F91F; }
+.chip.is-on { background: #FF5A58; color: #000; border-color: #FF5A58; }
 
 .field {
   width: 100%;
@@ -196,11 +196,11 @@ video.tile { padding: 0; display: block; }
   border: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.10);
   padding: 0.75rem 0;
-  color: #fff;
+  color: #FFEBC5;
   transition: border-color 0.2s;
 }
 .field::placeholder { color: #9a9590; }
-.field:focus { outline: none; border-color: #D6F91F; }
+.field:focus { outline: none; border-color: #FF5A58; }
 .field.is-invalid { border-color: #fff; }
 
 .wizard.is-sending #step-next { opacity: 0.5; pointer-events: none; }
@@ -210,7 +210,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill {
-  -webkit-text-fill-color: #FBF5F0;
+  -webkit-text-fill-color: #FFEBC5;
   -webkit-box-shadow: 0 0 0px 1000px #0a0a0a inset;
   transition: background-color 5000s ease-in-out 0s;
 }
