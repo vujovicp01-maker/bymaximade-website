@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join bymaximade — editors, designers and AI artists</title>
+  <meta name="description" content="bymaximade is looking for short-form editors, AI video and image artists, motion and ad designers, scriptwriters and on-camera creators. Apply in 3 minutes." />
+  <meta name="theme-color" content="#0B0A09" />
+  <link rel="canonical" href="https://bymaximade.com/join" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="bymaximade" />
+  <meta property="og:url" content="https://bymaximade.com/join" />
+  <meta property="og:title" content="Join bymaximade — editors, designers and AI artists" />
+  <meta property="og:description" content="Editors, AI artists and designers: show us your best work and we reach out when a project fits." />
+  <meta property="og:image" content="https://bymaximade.com/assets/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Join bymaximade — editors, designers and AI artists" />
+  <meta name="twitter:description" content="Editors, AI artists and designers: show us your best work and we reach out when a project fits." />
+  <meta name="twitter:image" content="https://bymaximade.com/assets/og.jpg" />
+
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Coolvetica', 'Archivo', 'Helvetica Neue', 'Arial', 'sans-serif'], display: ['Recoleta', 'Fraunces', 'Georgia', 'serif'] },
+          colors: {
+            brand: { DEFAULT: '#FF5A58', hover: '#EB5350' },
+            ink: { 900: '#0B0A09', 800: '#141211', 700: '#1C1A17', 500: '#9C9388', 300: '#CDC5B8', 100: '#FFEBC5' },
+            line: 'rgba(255,255,255,0.10)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-ink-900 text-ink-100 font-sans antialiased selection:bg-brand selection:text-black">
+
+  <header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="mx-auto max-w-3xl px-6 py-5 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2" aria-label="BYMD — bymaximade">
+        <span class="wordmark">BYMD</span>
+        <span class="hidden sm:inline text-sm text-ink-500 tracking-tight ml-1">bymaximade</span>
+      </a>
+      <a href="/" class="text-sm text-ink-500 hover:text-white transition-colors">← Back to site</a>
+    </div>
+  </header>
+
+  <main class="relative pt-32 md:pt-40 pb-16 overflow-hidden">
+    <div class="absolute inset-0 -z-10 grain"></div>
+    <div class="mx-auto max-w-3xl px-6">
+      <p class="reveal mb-6"><span class="badge">We're building our bench</span></p>
+      <h1 class="reveal font-display font-bold tracking-[-0.02em] leading-[1.0] text-[clamp(2.4rem,6vw,4.5rem)] mb-5">
+        Create with us.<br /><span class="text-ink-500">Editors, designers, AI artists.</span>
+      </h1>
+      <p class="reveal text-ink-300 text-base md:text-lg leading-relaxed mb-12 max-w-xl">
+        We make AI UGC, avatars and product videos for brands, and we work with a small bench of freelancers. Show us your best work and we reach out when a project fits your skills.
+      </p>
+
+          <form id="apply-form" class="reveal wizard" data-kind="join" data-done="Thanks. We review every application and reach out when a project fits your skills." novalidate>
+            <input type="hidden" name="access_key" value="6de902cd-fe8d-4cf0-9739-53ab33bfe13f" />
+            <input type="hidden" name="subject" value="New application — bymaximade.com" />
+            <input type="hidden" name="from_name" value="bymaximade.com careers" />
+            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="role" />
+            <input type="hidden" name="experience" />
+            <input type="hidden" name="tools" />
+            <input type="hidden" name="availability" />
+
+            <div class="flex items-center justify-between text-xs text-ink-500 mb-3">
+              <span id="step-label">Step 1 of 5</span>
+              <button type="button" id="step-back" class="hover:text-white transition-colors invisible">← Back</button>
+            </div>
+            <div class="progress"><i id="progress-bar" style="width:20%"></i></div>
+
+            <div class="steps">
+              <fieldset class="step is-active" data-step="1" data-field="role" data-multi>
+                <legend class="q">What do you do?</legend>
+                <p class="hint">Pick everything you'd put in a portfolio.</p>
+                <div class="chips">
+                  <button type="button" class="chip" data-value="Short-form video editor">Short-form video editor</button>
+                  <button type="button" class="chip" data-value="AI video artist">AI video artist</button>
+                  <button type="button" class="chip" data-value="AI image artist">AI image artist</button>
+                  <button type="button" class="chip" data-value="Motion designer">Motion designer</button>
+                  <button type="button" class="chip" data-value="Ad / graphic designer">Ad / graphic designer</button>
+                  <button type="button" class="chip" data-value="UGC scriptwriter">UGC scriptwriter</button>
+                  <button type="button" class="chip" data-value="On-camera creator">On-camera creator</button>
+                  <button type="button" class="chip" data-value="Voice-over talent">Voice-over talent</button>
+                  <button type="button" class="chip" data-value="Other">Other</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="step" data-step="2" data-field="experience">
+                <legend class="q">How long have you been doing it?</legend>
+                <p class="hint">Paid work counts. So do serious personal projects.</p>
+                <div class="chips">
+                  <button type="button" class="chip" data-value="Under 1 year">Under 1 year</button>
+                  <button type="button" class="chip" data-value="1 – 3 years">1 – 3 years</button>
+                  <button type="button" class="chip" data-value="3 – 5 years">3 – 5 years</button>
+                  <button type="button" class="chip" data-value="5+ years">5+ years</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="step" data-step="3" data-field="tools" data-multi>
+                <legend class="q">Which tools are you fast in?</legend>
+                <p class="hint">Only the ones you could deliver a client job in this week.</p>
+                <div class="chips">
+                  <button type="button" class="chip" data-value="Premiere Pro / After Effects">Premiere Pro / After Effects</button>
+                  <button type="button" class="chip" data-value="CapCut">CapCut</button>
+                  <button type="button" class="chip" data-value="DaVinci Resolve">DaVinci Resolve</button>
+                  <button type="button" class="chip" data-value="Figma / Photoshop">Figma / Photoshop</button>
+                  <button type="button" class="chip" data-value="Midjourney / Nano Banana">Midjourney / Nano Banana</button>
+                  <button type="button" class="chip" data-value="Kling / Seedance / Veo">Kling / Seedance / Veo</button>
+                  <button type="button" class="chip" data-value="Higgsfield / Arcads / HeyGen">Higgsfield / Arcads / HeyGen</button>
+                  <button type="button" class="chip" data-value="ElevenLabs">ElevenLabs</button>
+                  <button type="button" class="chip" data-value="Other">Other</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="step" data-step="4" data-field="availability">
+                <legend class="q">How much can you take on?</legend>
+                <p class="hint">We mostly work per project, with room for regulars.</p>
+                <div class="chips">
+                  <button type="button" class="chip" data-value="Full-time">Full-time</button>
+                  <button type="button" class="chip" data-value="Part-time (20h+ a week)">Part-time (20h+ a week)</button>
+                  <button type="button" class="chip" data-value="Per project">Per project</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="step" data-step="5" data-field="details">
+                <legend class="q">Last step — you and your work.</legend>
+                <div class="space-y-5 mt-2">
+                  <div>
+                    <label for="name" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Name</label>
+                    <input id="name" name="name" type="text" required autocomplete="name" class="field" placeholder="Your name" />
+                  </div>
+                  <div>
+                    <label for="email" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Email</label>
+                    <input id="email" name="email" type="email" required autocomplete="email" class="field" placeholder="you@domain.com" />
+                  </div>
+                  <div>
+                    <label for="portfolio" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Portfolio link</label>
+                    <input id="portfolio" name="portfolio" type="text" required class="field" placeholder="Behance, Drive folder, website, reel link" data-error="Add a link to your work — it's the first thing we open." />
+                    <p class="mt-1.5 text-xs text-ink-500">Your three best pieces beat thirty average ones.</p>
+                  </div>
+                  <div>
+                    <label for="handle" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Instagram <span class="normal-case tracking-normal">(optional)</span></label>
+                    <input id="handle" name="handle" type="text" class="field" placeholder="@yourhandle" />
+                  </div>
+                  <div class="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label for="rate" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Your rate <span class="normal-case tracking-normal">(optional)</span></label>
+                      <input id="rate" name="rate" type="text" class="field" placeholder="$40 per video, $30 an hour" />
+                    </div>
+                    <div>
+                      <label for="location" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Where you're based <span class="normal-case tracking-normal">(optional)</span></label>
+                      <input id="location" name="location" type="text" class="field" placeholder="City or time zone" />
+                    </div>
+                  </div>
+                  <div>
+                    <label for="about" class="block text-xs uppercase tracking-[0.2em] text-ink-500 mb-2">Why you</label>
+                    <textarea id="about" name="about" rows="4" required minlength="40" class="field resize-none" placeholder="What you're best at, a project you're proud of, and what kind of work you want more of." data-error="Tell us a little about yourself. A couple of sentences is enough."></textarea>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="step" data-step="done">
+                <p class="q" id="done-title">Got it.</p>
+                <p class="hint" id="done-text">Thanks. We review every application and reach out when a project fits your skills.</p>
+              </div>
+            </div>
+
+            <p id="step-error" class="text-sm text-white mt-4 min-h-[1.25rem]" aria-live="polite"></p>
+            <p class="text-xs text-ink-500 mt-2">We only use your details to review this application. Nothing is shared or added to a list.</p>
+
+            <div class="flex items-center justify-between mt-6" id="step-actions">
+              <span class="text-xs text-ink-500 hidden sm:inline">Press Enter ↵</span>
+              <button type="button" id="step-next" class="inline-flex items-center gap-2 rounded-full bg-ink-100 text-black px-6 py-3 text-sm font-medium hover:bg-ink-300 transition-colors">
+                Continue
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </form>
+
+      <div class="reveal mt-12 pt-8 border-t border-line">
+        <p class="text-sm text-ink-500 mb-2">Looking to hire us instead?</p>
+        <a href="/project-inquiries" class="block text-white text-lg hover:underline underline-offset-4">Start a project inquiry →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-t border-line py-10">
+    <div class="mx-auto max-w-3xl px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm text-ink-500">
+      <span>© 2026 BYMD LLC</span>
+      <a href="https://www.instagram.com/bymaximade" target="_blank" rel="noopener" class="hover:text-white">@bymaximade ↗</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -79,8 +79,7 @@
 
   // Named per field: a generic "check the form" makes the visitor hunt for what is wrong.
   // The browser only enforces minlength on text the visitor typed, so a pasted or autofilled
-  // one-word brief passes checkValidity(). Length is checked explicitly below.
-  const BRIEF_MIN = 40;
+  // one-word answer passes checkValidity(). Length is checked explicitly in validate().
   const DETAIL_ERROR = {
     name: 'Add your name.',
     email: 'Add a valid email so we can reply.',
@@ -112,12 +111,12 @@
     if (field === 'details') {
       let firstBad = null;
       step.querySelectorAll('[required]').forEach((input) => {
-        const bad = !input.checkValidity() || (input.name === 'brief' && input.value.trim().length < BRIEF_MIN);
+        const bad = !input.checkValidity() || (input.minLength > 0 && input.value.trim().length < input.minLength);
         input.classList.toggle('is-invalid', bad);
         if (bad && !firstBad) firstBad = input;
       });
       if (firstBad) {
-        setError(DETAIL_ERROR[firstBad.name] || 'Check this field.');
+        setError(firstBad.dataset.error || DETAIL_ERROR[firstBad.name] || 'Check this field.');
         firstBad.focus();
       }
       return !firstBad;
@@ -176,12 +175,19 @@
   async function submit() {
     const data = new FormData(form);
     const name = data.get('name').trim();
-    const budget = String(data.get('budget') || '');
-    const timeline = String(data.get('timeline') || '');
     // A star on the ones worth opening first, so the inbox list triages itself without
-    // opening anything: filter Gmail on the star, or on a budget string.
-    const strong = budget !== 'Under $1k' && timeline !== 'Just exploring';
-    data.set('subject', `${strong ? '★ ' : ''}New inquiry — ${name} · ${budget} · ${timeline}`);
+    // opening anything: filter Gmail on the star, or on the words after the dash.
+    if (form.dataset.kind === 'join') {
+      const role = String(data.get('role') || '');
+      const exp = String(data.get('experience') || '');
+      const strong = exp === '3 – 5 years' || exp === '5+ years';
+      data.set('subject', `${strong ? '★ ' : ''}New application — ${name} · ${role} · ${exp}`);
+    } else {
+      const budget = String(data.get('budget') || '');
+      const timeline = String(data.get('timeline') || '');
+      const strong = budget !== 'Under $1k' && timeline !== 'Just exploring';
+      data.set('subject', `${strong ? '★ ' : ''}New inquiry — ${name} · ${budget} · ${timeline}`);
+    }
     form.classList.add('is-sending');
     setError('Sending…');
 
@@ -196,16 +202,19 @@
 
     if (!sent) {
       // Fallback: open the visitor's email client pre-filled
-      const body = ['need', 'who', 'budget', 'timeline', 'name', 'email', 'handle', 'brief']
-        .map((k) => `${k}: ${data.get(k) || ''}`).join('\n');
+      const META = ['access_key', 'subject', 'from_name', 'botcheck'];
+      const body = [...data.entries()].filter(([k]) => !META.includes(k))
+        .map(([k, v]) => `${k}: ${v}`).join('\n');
       window.location.href = 'mailto:bymaximade@gmail.com?subject=' + encodeURIComponent(data.get('subject')) + '&body=' + encodeURIComponent(body);
     }
 
     document.getElementById('done-title').textContent = `Got it, ${name.split(' ')[0]}.`;
+    const doneOk = form.dataset.done || "We'll get back to you within 48 hours.";
     document.getElementById('done-text').textContent = sent
-      ? "We'll get back to you within 48 hours."
-      : 'Your email app should open with the application. Hit send and we get back to you within 48 hours.';
-    document.getElementById('done-community').classList.toggle('hidden', data.get('budget') !== 'Under $1k');
+      ? doneOk
+      : 'Your email app should open with the application. Hit send and it reaches us.';
+    const community = document.getElementById('done-community');
+    if (community) community.classList.toggle('hidden', data.get('budget') !== 'Under $1k');
     show(steps.length - 1);
   }
 })();
