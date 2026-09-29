@@ -87,6 +87,19 @@
     brief: 'Tell us about the project. A couple of sentences is enough.',
   };
 
+  // A silent minimum reads as a broken button: say how much is missing, right under the field.
+  const noteFor = (field) => {
+    if (!field.nextElementSibling || !field.nextElementSibling.classList.contains('field-note')) {
+      field.insertAdjacentHTML('afterend', '<p class="field-note" aria-live="polite"></p>');
+    }
+    return field.nextElementSibling;
+  };
+  const updateNote = (field, force) => {
+    const left = field.minLength - field.value.trim().length;
+    noteFor(field).textContent = left > 0 && (force || field.value) ? `${left} more character${left === 1 ? '' : 's'} to go` : '';
+  };
+  form.querySelectorAll('.field[minlength]').forEach((f) => f.addEventListener('input', () => updateNote(f)));
+
   // Chip selection → hidden input
   form.querySelectorAll('.step[data-field]').forEach((step) => {
     const hidden = form.elements[step.dataset.field];
@@ -113,6 +126,7 @@
       step.querySelectorAll('[required]').forEach((input) => {
         const bad = !input.checkValidity() || (input.minLength > 0 && input.value.trim().length < input.minLength);
         input.classList.toggle('is-invalid', bad);
+        if (input.minLength > 0) updateNote(input, true);
         if (bad && !firstBad) firstBad = input;
       });
       if (firstBad) {
