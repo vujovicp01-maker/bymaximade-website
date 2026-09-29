@@ -203,11 +203,6 @@
       // in Gmail labels and the automation's brief.
       data.set('subject', `Your project inquiry #${ref} — bymaximade`);
     }
-    // Every answer again as one base64 token (contract: automation/README.md). It survives
-    // whatever HTML layout Web3Forms gives the notification email.
-    const answers = Object.fromEntries([...data].filter(([k]) => k !== 'access_key' && k !== 'botcheck'));
-    const bytes = new TextEncoder().encode(JSON.stringify({ v: 1, kind: isJoin ? 'application' : 'inquiry', ref, ...answers }));
-    data.set('lead_payload', `LP1.${btoa(Array.from(bytes, (b) => String.fromCharCode(b)).join(''))}.END`);
     form.classList.add('is-sending');
     setError('Sending…');
 
@@ -222,7 +217,7 @@
 
     if (!sent) {
       // Fallback: open the visitor's email client pre-filled
-      const META = ['access_key', 'subject', 'from_name', 'botcheck', 'lead_payload'];
+      const META = ['access_key', 'subject', 'from_name', 'botcheck'];
       const body = [...data.entries()].filter(([k]) => !META.includes(k))
         .map(([k, v]) => `${k}: ${v}`).join('\n');
       window.location.href = 'mailto:contact@bymaximade.com?subject=' + encodeURIComponent(data.get('subject')) + '&body=' + encodeURIComponent(body);

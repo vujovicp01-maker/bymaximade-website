@@ -10,14 +10,11 @@ Form → Web3Forms → email in contact@bymaximade.com (Reply-To = lead) → n8n
 Gemini classify + write → rules → Gmail label + brief email → draft in the lead's thread →
 auto-sent after 3–10 min only for clear, real leads.
 
-## Payload contract (`lead_payload`)
-`script.js` adds one field to every submission:
-
-    LP1.<base64 of UTF-8 JSON>.END
-
-JSON: `{ v: 1, kind: "inquiry" | "application", ref, ...every form answer }`. Inquiry subjects
-are `Your project inquiry #<ref> — bymaximade`. Changing field names means updating the n8n
-"Parse & dedupe" node too.
+## Form contract
+n8n reads the fields from the Web3Forms notification's HTML (one bold label + value per
+field, label = field name). The subject decides the kind: `Your project inquiry #<ref> —
+bymaximade` is an inquiry, `… New application — …` an application. Changing field names or
+subjects means updating the n8n "Parse & dedupe" node too.
 
 ## Owner setup (once)
 1. web3forms.com: create an access key for contact@bymaximade.com; put it in both forms.
