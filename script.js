@@ -175,19 +175,25 @@
   async function submit() {
     const data = new FormData(form);
     const name = data.get('name').trim();
-    // A star on the ones worth opening first, so the inbox list triages itself without
-    // opening anything: filter Gmail on the star, or on the words after the dash.
-    if (form.dataset.kind === 'join') {
+    const isJoin = form.dataset.kind === 'join';
+    // Unique per submission: Gmail never merges two leads into one conversation, and the
+    // automation files the lead under it.
+    const ref = Date.now().toString(36).slice(-6).toUpperCase();
+    if (isJoin) {
       const role = String(data.get('role') || '');
       const exp = String(data.get('experience') || '');
       const strong = exp === '3 – 5 years' || exp === '5+ years';
       data.set('subject', `${strong ? '★ ' : ''}New application — ${name} · ${role} · ${exp}`);
     } else {
-      const budget = String(data.get('budget') || '');
-      const timeline = String(data.get('timeline') || '');
-      const strong = budget !== 'Under $1k' && timeline !== 'Just exploring';
-      data.set('subject', `${strong ? '★ ' : ''}New inquiry — ${name} · ${budget} · ${timeline}`);
+      // The lead sees "Re: <this subject>" on our follow-up, so it stays neutral; triage lives
+      // in Gmail labels and the automation's brief.
+      data.set('subject', `Your project inquiry #${ref} — bymaximade`);
     }
+    // Every answer again as one base64 token (contract: automation/README.md). It survives
+    // whatever HTML layout Web3Forms gives the notification email.
+    const answers = Object.fromEntries([...data].filter(([k]) => k !== 'access_key' && k !== 'botcheck'));
+    const bytes = new TextEncoder().encode(JSON.stringify({ v: 1, kind: isJoin ? 'application' : 'inquiry', ref, ...answers }));
+    data.set('lead_payload', `LP1.${btoa(Array.from(bytes, (b) => String.fromCharCode(b)).join(''))}.END`);
     form.classList.add('is-sending');
     setError('Sending…');
 
@@ -202,14 +208,14 @@
 
     if (!sent) {
       // Fallback: open the visitor's email client pre-filled
-      const META = ['access_key', 'subject', 'from_name', 'botcheck'];
+      const META = ['access_key', 'subject', 'from_name', 'botcheck', 'lead_payload'];
       const body = [...data.entries()].filter(([k]) => !META.includes(k))
         .map(([k, v]) => `${k}: ${v}`).join('\n');
-      window.location.href = 'mailto:bymaximade@gmail.com?subject=' + encodeURIComponent(data.get('subject')) + '&body=' + encodeURIComponent(body);
+      window.location.href = 'mailto:contact@bymaximade.com?subject=' + encodeURIComponent(data.get('subject')) + '&body=' + encodeURIComponent(body);
     }
 
     document.getElementById('done-title').textContent = `Got it, ${name.split(' ')[0]}.`;
-    const doneOk = form.dataset.done || "We'll get back to you within 48 hours.";
+    const doneOk = form.dataset.done || "We'll reply from contact@bymaximade.com within 48 hours. Not in your inbox? Check spam or promotions.";
     document.getElementById('done-text').textContent = sent
       ? doneOk
       : 'Your email app should open with the application. Hit send and it reaches us.';

@@ -42,7 +42,7 @@ To replace the logo, drop a new file at `assets/logo.png` — both the nav and f
 
 ## Contact form
 
-The form on the homepage submits via `mailto:bymaximade@gmail.com`. When a visitor clicks **Send inquiry**, their default email client opens with the brief pre-filled. They press send and the message lands in the bymaximade inbox.
+Both forms (`/project-inquiries` for clients, `/join` for creatives) post to Web3Forms, which emails contact@bymaximade.com. An n8n automation then researches, labels and answers each lead — see `automation/README.md`.
 
 > Want submissions to arrive without opening the visitor's email client? Sign up for [Formspree](https://formspree.io) (free tier), then in `script.js` swap the `mailto:` block for a `fetch()` POST to the Formspree endpoint. ~5 lines of code.
 
