@@ -1,0 +1,28 @@
+# Regenerates sitemap.xml whenever pages change and commits it back to main.
+# The bot's push redeploys the site on Cloudflare; pushes made with GITHUB_TOKEN don't re-trigger this workflow.
+name: Sitemap
+
+on:
+  push:
+    branches: [main]
+    paths: ['*.html', 'scripts/build-sitemap.mjs', '.assetsignore']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history: lastmod comes from git
+      - run: node scripts/build-sitemap.mjs
+      - name: Commit sitemap.xml if it changed
+        run: |
+          git diff --quiet -- sitemap.xml && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update sitemap.xml" -- sitemap.xml
+          git push
