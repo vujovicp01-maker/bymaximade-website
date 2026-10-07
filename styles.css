@@ -33,38 +33,8 @@ body {
 }
 @keyframes word-in { to { opacity: 1; transform: none; } }
 
-/* Video wall */
-.wall {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-.wall-col { display: flex; flex-direction: column; gap: 12px; animation: float 9s ease-in-out infinite; }
-.wall-col--up { transform: translateY(-28px); animation-delay: -4.5s; }
-@keyframes float {
-  0%, 100% { translate: 0 0; }
-  50%      { translate: 0 -10px; }
-}
-.tile {
-  aspect-ratio: 9 / 16;
-  width: 100%;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 60%),
-    #151515;
-  object-fit: cover;
-  display: flex;
-  align-items: flex-end;
-  padding: 12px;
-  overflow: hidden;
-}
-video.tile { padding: 0; display: block; }
-
-/* Phone: one row of three tiles so the hero fits a screen, bigger tap targets */
+/* Phone: bigger tap targets */
 @media (max-width: 1023px) {
-  .wall-col .tile:nth-child(2) { display: none; }
-  .wall-col--up { transform: none; }
   .chip { padding: 0.75rem 1.1rem; }
   .steps { overflow-x: clip; }
 }
@@ -236,7 +206,6 @@ textarea:-webkit-autofill {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal, .reveal.pending { opacity: 1; transform: none; transition: none; }
-  .wall-col { animation: none; }
   .words .w { animation: none; opacity: 1; transform: none; }
   .step.is-active, .step.is-leaving { animation: none; }
 }
