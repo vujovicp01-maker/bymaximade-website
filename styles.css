@@ -203,6 +203,11 @@ textarea:-webkit-autofill {
   border-radius: 2px;
 }
 
+/* Print has no scrolling, so blocks still waiting to fade in would print blank. */
+@media print {
+  .reveal.pending { opacity: 1; transform: none; transition: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal, .reveal.pending { opacity: 1; transform: none; transition: none; }
