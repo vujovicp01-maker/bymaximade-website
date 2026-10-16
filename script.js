@@ -10,9 +10,16 @@
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ----- Nav scroll state -----
+  // ----- Nav scroll state + scroll progress line (homepage) -----
   const nav = document.getElementById('nav');
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+  const progress = document.getElementById('scroll-progress');
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 24);
+    if (progress) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = `scaleX(${max > 0 ? Math.min(window.scrollY / max, 1) : 0})`;
+    }
+  };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
