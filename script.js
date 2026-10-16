@@ -19,16 +19,15 @@
   // ----- Mobile menu -----
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
-  if (menuToggle) menuToggle.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('hidden') === false;
-    menuToggle.classList.toggle('is-open', isOpen);
-  });
-  if (mobileMenu) mobileMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      menuToggle.classList.remove('is-open');
-    });
-  });
+  if (menuToggle && mobileMenu) {
+    const setMenu = (open) => {
+      mobileMenu.classList.toggle('hidden', !open);
+      menuToggle.classList.toggle('is-open', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+    };
+    menuToggle.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+    mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+  }
 
   // ----- Reveal-on-scroll -----
   const revealEls = document.querySelectorAll('.reveal');
