@@ -227,8 +227,6 @@
     document.getElementById('done-text').textContent = sent
       ? doneOk
       : 'Your email app should open with the application. Hit send and it reaches us.';
-    const community = document.getElementById('done-community');
-    if (community) community.classList.toggle('hidden', data.get('budget') !== 'Under $1k');
     show(steps.length - 1);
   }
 })();
