@@ -79,15 +79,17 @@
         <a href="/join" class="hover:text-white transition-colors">Join the team</a>
         <a href="https://www.instagram.com/bymaximade" target="_blank" rel="noopener" class="hover:text-white transition-colors">Instagram ↗</a>
       </nav>
-      <a href="/project-inquiries" class="hidden lg:inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-brand text-black px-4 py-2 text-sm font-bold hover:bg-brand-hover transition-colors">
-        Project inquiry
-        <span aria-hidden="true">→</span>
-      </a>
-      <button id="menu-toggle" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
-        <span class="block w-5 h-px bg-white transition-transform"></span>
-        <span class="block w-5 h-px bg-white transition-opacity"></span>
-        <span class="block w-5 h-px bg-white transition-transform"></span>
-      </button>
+      <div class="flex items-center gap-2">
+        <a href="/project-inquiries" class="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-brand text-black px-4 py-2 text-sm font-bold hover:bg-brand-hover transition-colors">
+          <span class="lg:hidden">Inquiry</span><span class="hidden lg:inline">Project inquiry</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <button id="menu-toggle" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+          <span class="block w-5 h-px bg-white transition-transform"></span>
+          <span class="block w-5 h-px bg-white transition-opacity"></span>
+          <span class="block w-5 h-px bg-white transition-transform"></span>
+        </button>
+      </div>
     </div>
     <div id="mobile-menu" class="hidden lg:hidden bg-ink-900 border-t border-line">
       <nav class="px-6 py-6 flex flex-col gap-5 text-base text-ink-300">
@@ -108,7 +110,7 @@
 
     <div class="mx-auto max-w-7xl px-6 md:px-10">
       <div>
-        <p class="reveal mb-8"><span class="badge">41,000+ on Instagram</span></p>
+        <p class="reveal mb-8"><a href="https://www.instagram.com/bymaximade" target="_blank" rel="noopener" class="badge hover:bg-brand-hover transition-colors">41,000+ on Instagram <span aria-hidden="true">↗</span></a></p>
 
         <h1 class="font-display font-bold leading-[1.0] tracking-[-0.02em] text-[clamp(2.4rem,6.5vw,5.5rem)]">
           <span class="words">Content that looks shot.</span><br />
@@ -123,6 +125,10 @@
           <a href="/project-inquiries" class="inline-flex items-center gap-2 rounded-full bg-ink-100 text-black px-6 py-3 text-sm font-bold hover:bg-ink-300 transition-colors">
             Start a project inquiry
             <span aria-hidden="true">→</span>
+          </a>
+          <a href="https://www.instagram.com/bymaximade" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm text-white hover:bg-white/5 transition-colors">
+            See the work on Instagram
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>
@@ -247,19 +253,39 @@
     </div>
   </section>
 
+  <!-- ============== APPLY BAND ============== -->
+  <section id="apply" class="py-24 md:py-32 border-t border-line">
+    <div class="mx-auto max-w-7xl px-6 md:px-10 grid md:grid-cols-12 gap-10 items-center">
+      <div class="md:col-span-7">
+        <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">03 — Work with us</p>
+        <h2 class="reveal font-display font-bold tracking-[-0.02em] text-[clamp(2rem,4vw,3rem)] leading-[1.05] mb-4">
+          Let's make something<br /><span class="text-ink-500">people can't tell is AI.</span>
+        </h2>
+        <p class="reveal text-ink-300 leading-relaxed max-w-xl">Tell us about your project. We get back to you within 48 hours. We take on a handful of collaborations each month, so the earlier you reach out, the better.</p>
+      </div>
+      <div class="md:col-span-5 md:text-right">
+        <a href="/project-inquiries" class="reveal inline-flex items-center gap-2 rounded-full bg-brand text-black px-7 py-4 text-base font-bold hover:bg-brand-hover transition-colors">
+          Start a project inquiry
+          <span aria-hidden="true">→</span>
+        </a>
+        <p class="reveal mt-4 text-sm text-ink-500">Or email <a href="mailto:contact@bymaximade.com" class="text-white hover:underline underline-offset-4">contact@bymaximade.com</a></p>
+      </div>
+    </div>
+  </section>
+
   <!-- ============== COMMUNITY ============== -->
   <section id="community" class="py-24 md:py-32 border-t border-line bg-ink-800">
     <div class="mx-auto max-w-7xl px-6 md:px-10">
       <div class="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
         <div class="md:col-span-5">
-          <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">03 — Community</p>
+          <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">04 — Community</p>
           <h2 class="reveal font-display font-bold tracking-[-0.02em] text-[clamp(2rem,4vw,3rem)] leading-[1.05] mb-6">
             Want to make it<br /><span class="text-ink-500">yourself?</span>
           </h2>
           <p class="reveal text-ink-300 leading-relaxed mb-8">
             The Skool community is where we teach the exact prompts, tools, and workflows behind every video we make.
           </p>
-          <a href="https://www.skool.com/next-creators-community-4099/about" target="_blank" rel="noopener" class="reveal inline-flex items-center gap-2 rounded-full bg-ink-100 text-black px-6 py-3 text-sm font-bold hover:bg-ink-300 transition-colors">
+          <a href="https://www.skool.com/next-creators-community-4099/about" target="_blank" rel="noopener" class="reveal inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-sm font-bold text-ink-100 hover:bg-ink-100 hover:text-black transition-colors">
             Join the community
             <span aria-hidden="true">→</span>
           </a>
@@ -276,26 +302,6 @@
             <li class="reveal flex items-baseline gap-3 py-3 border-t border-b border-line"><span class="text-xs text-ink-500">07</span> Support</li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== APPLY BAND ============== -->
-  <section id="apply" class="py-24 md:py-32 border-t border-line">
-    <div class="mx-auto max-w-7xl px-6 md:px-10 grid md:grid-cols-12 gap-10 items-center">
-      <div class="md:col-span-7">
-        <p class="reveal text-xs uppercase tracking-[0.25em] text-ink-500 mb-5">04 — Work with us</p>
-        <h2 class="reveal font-display font-bold tracking-[-0.02em] text-[clamp(2rem,4vw,3rem)] leading-[1.05] mb-4">
-          Let's make something<br /><span class="text-ink-500">people can't tell is AI.</span>
-        </h2>
-        <p class="reveal text-ink-300 leading-relaxed max-w-xl">Tell us about your project. We get back to you within 48 hours. We take on a handful of collaborations each month, so the earlier you reach out, the better.</p>
-      </div>
-      <div class="md:col-span-5 md:text-right">
-        <a href="/project-inquiries" class="reveal inline-flex items-center gap-2 rounded-full bg-brand text-black px-7 py-4 text-base font-bold hover:bg-brand-hover transition-colors">
-          Start a project inquiry
-          <span aria-hidden="true">→</span>
-        </a>
-        <p class="reveal mt-4 text-sm text-ink-500">Or email <a href="mailto:contact@bymaximade.com" class="text-white hover:underline underline-offset-4">contact@bymaximade.com</a></p>
       </div>
     </div>
   </section>
