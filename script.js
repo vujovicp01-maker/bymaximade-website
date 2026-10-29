@@ -230,7 +230,7 @@
     }
 
     document.getElementById('done-title').textContent = `Got it, ${name.split(' ')[0]}.`;
-    const doneOk = form.dataset.done || "We'll reply from contact@bymaximade.com within 48 hours. Not in your inbox? Check spam or promotions.";
+    const doneOk = form.dataset.done || "We'll reply from contact@bymaximade.com within 24 hours. Not in your inbox? Check spam or promotions.";
     document.getElementById('done-text').textContent = sent
       ? doneOk
       : 'Your email app should open with the application. Hit send and it reaches us.';
