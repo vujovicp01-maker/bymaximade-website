@@ -1,92 +1,87 @@
 /* ===========================================================
-   bymaximade — custom styles
-   Layered on top of Tailwind (loaded via CDN in index.html).
+   byMaximade components. Plain CSS, linked BEFORE tailwind.css,
+   so a utility on a component (w-full, hidden) always wins.
    =========================================================== */
 
-html { scroll-behavior: smooth; }
+/* Self hosted OFL fonts, latin subset. Recoleta and Coolvetica go first in tailwind.config.js only once licensed files exist. */
+@font-face { font-family: Fraunces; src: url('assets/fonts/fraunces-600.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: Archivo; src: url('assets/fonts/archivo.woff2') format('woff2'); font-weight: 400 700; font-style: normal; font-display: swap; }
 
-/* Brand fonts. Drop the licensed files into assets/fonts/ and uncomment:
-@font-face { font-family: "Recoleta"; src: url("assets/fonts/Recoleta-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
-@font-face { font-family: "Coolvetica"; src: url("assets/fonts/Coolvetica-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
-Until then Fraunces stands in for Recoleta and Archivo for Coolvetica. */
-
-body {
-    -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* The palette. tailwind.config.js points its colors here. */
+:root {
+  --cream: #FFEBC5;
+  --ink: #0B0A09;
+  --umber: #655849;
+  --line: #CEBE9F;
+  --coral: #FF5A58;
 }
 
-/* Subtle film grain for the hero — pure SVG, no external asset */
-.grain {
-  background-color: #0B0A09;
-  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  background-size: 200px 200px;
-  background-repeat: repeat;
-}
+/* scroll-padding keeps anchors, the skip link and keyboard focus clear of the fixed 64px header. */
+html { scroll-behavior: smooth; scroll-padding-top: 80px; font-synthesis: none; }
 
-/* Word-by-word hero reveal (spans injected by script.js) */
-.words .w {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(0.4em);
-  animation: word-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
-  animation-delay: calc(var(--i, 0) * 90ms);
-}
-@keyframes word-in { to { opacity: 1; transform: none; } }
+::selection { background: var(--coral); color: var(--ink); }
+.rule-card ::selection { background: var(--ink); color: var(--cream); }
 
-/* Phone: bigger tap targets */
-@media (max-width: 1023px) {
-  .chip { padding: 0.75rem 1.1rem; }
-  .steps { overflow-x: clip; }
-}
+/* :root raises specificity above the preflight's :-moz-focusring, which loads later.
+   No border-radius here: it would square the pill buttons. */
+:root :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
-/* Partner tiles */
-.partner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  min-height: 150px;
-  padding: 2rem;
-  background: #000000;
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: #FFEBC5;
-  transition: background-color 0.25s, color 0.25s;
-}
-.partner span { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: #9C9388; }
-.partner:hover { background: #FFEBC5; color: #0a0a0a; }
-.partner:hover span { color: #555; }
-.partner--cta em { font-style: normal; }
+.font-display { font-weight: 600; }
 
-/* Coral highlight badge: the only place the accent appears. Black text on coral, never coral text. */
-.badge {
-  display: inline-block;
-  background: #FF5A58;
-  color: #000;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
-  line-height: 1;
-  vertical-align: middle;
-}
-.badge--ghost { background: transparent; color: #9C9388; border: 1px solid rgba(255,255,255,0.18); }
+.wrap { max-width: 72rem; margin-inline: auto; padding-inline: 20px; }
+@media (min-width: 640px) { .wrap { padding-inline: 32px; } }
+@media (min-width: 1024px) { .wrap { padding-inline: 48px; } }
 
 /* BYMD wordmark */
-.wordmark {
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: #FFEBC5;
+.wordmark { font-weight: 700; font-size: 22px; letter-spacing: -0.04em; line-height: 1; }
+.wordmark--lg { font-size: 32px; }
+
+/* One action, one look: ink pill, coral only while the visitor points at it or focuses it. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--cream);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  transition: background-color 150ms, color 150ms;
 }
-.wordmark--lg { font-size: 2.4rem; }
+.btn--sm { min-height: 44px; padding: 0 16px; font-size: 14px; }
+@media (max-width: 359px) { .btn--sm { padding: 0 12px; } }
+.btn:focus-visible { background: var(--coral); color: var(--ink); }
+
+.link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--umber);
+  text-underline-offset: 0.2em;
+}
+
+/* On touch screens :hover sticks after a tap, so hover styles only exist where a pointer can hover. */
+@media (hover: hover) {
+  .btn:hover { background: var(--coral); color: var(--ink); }
+  .chip:hover { border-color: var(--ink); }
+  .link:hover { text-decoration-color: var(--ink); text-decoration-thickness: 2px; }
+}
+
+.skip-link { position: absolute; top: 10px; left: 16px; z-index: 70; transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+
+/* The rule card: the one coral surface on the site. Coral is never text and never a thin line on cream (2.6:1). */
+.rule-card { background: var(--coral); color: var(--ink); text-align: center; padding: 96px 20px; }
+@media (min-width: 768px) { .rule-card { padding: 128px 32px; } }
+@media (min-width: 1024px) { .rule-card { padding: 160px 48px; } }
+.rule-card h2 { font-size: clamp(3rem, 1.5rem + 6vw, 7rem); line-height: 1; letter-spacing: -0.02em; text-wrap: balance; }
 
 /* FAQ accordions (native details/summary) */
-.faq { border-bottom: 1px solid rgba(255, 255, 255, 0.10); }
+.faq { border-bottom: 1px solid var(--line); }
 .faq summary {
   list-style: none;
   cursor: pointer;
@@ -94,50 +89,48 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 1.25rem 0;
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: #FFEBC5;
+  min-height: 64px;
+  padding: 0.75rem 0;
+  font-family: Fraunces, Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 1.15rem + 0.3vw, 1.375rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after {
-  content: "+";
+  content: '+';
+  content: '+' / '';
   flex: none;
-  width: 28px;
-  height: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
+  font-family: Archivo, 'Helvetica Neue', Arial, sans-serif;
   font-weight: 400;
-  color: #9C9388;
-  transition: transform 0.25s, background-color 0.25s, color 0.25s;
+  font-size: 24px;
+  line-height: 1;
+  transition: transform 200ms;
 }
-.faq[open] summary::after { transform: rotate(45deg); background: #FF5A58; color: #000; border-color: #FF5A58; }
+.faq[open] summary::after { transform: rotate(45deg); }
+.faq p { max-width: 60ch; padding-bottom: 24px; }
 
-/* Nav — scroll state */
-#nav.scrolled {
-  background-color: rgba(0, 0, 0, 0.85);
-  backdrop-filter: saturate(140%) blur(12px);
-  -webkit-backdrop-filter: saturate(140%) blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+/* The usual way vs byMaximade, set like end credits around an invisible axis. */
+.credits { width: 100%; max-width: 48rem; table-layout: fixed; border-collapse: collapse; }
+.credits th { padding-bottom: 16px; font-size: 14px; font-weight: 500; color: var(--umber); text-align: left; }
+.credits td { padding-block: 8px; vertical-align: baseline; }
+.credits th:first-child, .credits td:first-child { padding-right: 12px; }
+.credits th:last-child, .credits td:last-child { padding-left: 12px; }
+.credits td:first-child { font-size: 16px; line-height: 1.4; color: var(--umber); }
+.credits td:last-child { font-family: Fraunces, Georgia, 'Times New Roman', serif; font-weight: 600; font-size: 17px; line-height: 1.3; }
+@media (min-width: 640px) {
+  .credits { margin-inline: auto; }
+  .credits th:first-child, .credits td:first-child { padding-right: 20px; text-align: right; }
+  .credits th:last-child, .credits td:last-child { padding-left: 20px; }
+  .credits td:first-child { font-size: 17px; }
+  .credits td:last-child { font-size: clamp(1.125rem, 1rem + 0.4vw, 1.25rem); }
 }
-
-/* Reveal-on-scroll. Content starts VISIBLE — script.js adds .pending only to what is still
-   below the fold when it runs, and fades those in. Hiding every .reveal by default left the
-   inquiry page (where every block is a .reveal) black until the Tailwind CDN finished and the
-   script ran: 5 to 8 seconds on a phone, and forever if the script never loads. */
-.reveal.pending {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
-  will-change: opacity, transform;
-}
-.reveal.pending.is-visible { opacity: 1; transform: translateY(0); }
+@media (min-width: 1024px) { .credits td { padding-block: 10px; } }
 
 /* ---------- Apply wizard ---------- */
-.progress { height: 2px; background: rgba(255, 255, 255, 0.12); overflow: hidden; }
-.progress i { display: block; height: 100%; background: #FF5A58; transition: width 0.45s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.progress { height: 2px; background: var(--line); overflow: hidden; }
+.progress i { display: block; height: 100%; background: var(--ink); transition: width 0.45s cubic-bezier(0.2, 0.7, 0.2, 1); }
 
 .steps { position: relative; margin-top: 2rem; }
 .step { display: none; border: 0; padding: 0; margin: 0; min-width: 0; }
@@ -146,71 +139,63 @@ body {
 @keyframes step-in  { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
 @keyframes step-out { to   { opacity: 0; transform: translateX(-24px); } }
 
-.q { font-family: Recoleta, Fraunces, Georgia, serif; font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 0.4rem; }
-.hint { font-size: 0.875rem; color: #9C9388; margin-bottom: 1.25rem; }
+.q { font-family: Fraunces, Georgia, 'Times New Roman', serif; font-weight: 600; font-size: clamp(1.5rem, 1.3rem + 0.9vw, 2rem); letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 0.4rem; }
+.hint { font-size: 0.875rem; color: var(--umber); margin-bottom: 1.25rem; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--umber);
   border-radius: 999px;
   padding: 0.6rem 1rem;
   min-height: 44px;
-  font-size: 0.875rem;
-  color: #FFEBC5;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ink);
   background: transparent;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+  transition: background-color 0.2s, border-color 0.2s;
 }
-.chip:hover { border-color: rgba(255, 255, 255, 0.5); transform: translateY(-1px); }
-.chip.is-on { background: #FF5A58; color: #000; border-color: #FF5A58; }
+.chip.is-on { background: var(--coral); border-color: var(--ink); }
+/* The check is the selected cue that does not rely on color. The plain line is the fallback where alt text is unsupported. */
+.chip.is-on::before { content: '✓'; content: '✓' / ''; margin-right: 0.4em; }
+
+/* Phone: bigger tap targets */
+@media (max-width: 1023px) {
+  .chip { padding: 0.75rem 1.1rem; }
+  .steps { overflow-x: clip; }
+}
 
 .field {
   width: 100%;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  border-bottom: 1px solid var(--umber);
   padding: 0.75rem 0;
-  color: #FFEBC5;
-  transition: border-color 0.2s;
+  color: var(--ink);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-.field::placeholder { color: #9C9388; }
-.field:focus { outline: none; border-color: #FF5A58; }
-.field.is-invalid, .field.is-invalid:focus { border-color: #FF5A58; border-bottom-width: 2px; }
-.field-note { margin-top: 0.375rem; font-size: 0.8125rem; color: #FF5A58; }
+.field::placeholder { color: var(--umber); opacity: 1; }
+/* After the :focus-visible rule on purpose: on a field, the 2px ink underline is the focus cue. */
+.field:focus { outline: none; border-color: var(--ink); box-shadow: 0 1px 0 var(--ink); }
+.field.is-invalid { border-color: var(--ink); box-shadow: 0 1px 0 var(--ink); }
+.field-note { margin-top: 0.375rem; font-size: 14px; font-weight: 600; }
 .field-note:empty { display: none; }
-#step-error { color: #FF5A58; font-weight: 500; }
+#step-error { font-weight: 600; }
 
 .wizard.is-sending #step-next { opacity: 0.5; pointer-events: none; }
 
-/* Form autofill — kill the yellow Chrome background */
+/* Form autofill: keep the cream ground instead of Chrome's yellow */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill {
-  -webkit-text-fill-color: #FFEBC5;
-  -webkit-box-shadow: 0 0 0px 1000px #0a0a0a inset;
+  -webkit-text-fill-color: var(--ink);
+  -webkit-box-shadow: 0 0 0 1000px var(--cream) inset;
   transition: background-color 5000s ease-in-out 0s;
-}
-
-/* Hamburger active state */
-#menu-toggle.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-#menu-toggle.is-open span:nth-child(2) { opacity: 0; }
-#menu-toggle.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-/* Focus rings */
-:focus-visible {
-  outline: 1px solid rgba(255, 255, 255, 0.6);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-/* Print has no scrolling, so blocks still waiting to fade in would print blank. */
-@media print {
-  .reveal.pending { opacity: 1; transform: none; transition: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal, .reveal.pending { opacity: 1; transform: none; transition: none; }
-  .words .w { animation: none; opacity: 1; transform: none; }
   .step.is-active, .step.is-leaving { animation: none; }
+  *, *::before, *::after { transition: none !important; }
 }

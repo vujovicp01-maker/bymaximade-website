@@ -1,26 +1,34 @@
-# bymaximade
+# byMaximade
 
-The marketing website for **bymaximade** (BYMD LLC) — a creative studio producing realistic AI content (AI UGC, avatars, product videos, short form).
+The marketing website for **byMaximade** (BYMD LLC), an AI only studio making realistic AI content: AI UGC, ads, avatars, product videos and visuals.
 
-Single-page, dark, editorial-minimal. No build step. Plain HTML + Tailwind (CDN) + a small vanilla JS file.
+Four static pages on a cream ground: plain HTML, a compiled Tailwind build, one components stylesheet and a small vanilla JS file.
 
 ---
 
 ## Local preview
 
-Just open `index.html` in any browser. No server, no install.
-
-If you want hot-reload while editing, you can optionally serve it with any static server, e.g.:
+Serve the folder with any static server, then open <http://localhost:8000>:
 
 ```bash
-# Python
 python -m http.server 8000
-
-# Node
-npx serve .
 ```
 
-Then open <http://localhost:8000>.
+Opening `index.html` straight from disk also works. The extensionless links (`/join`, `/project-inquiries`) only resolve on Cloudflare; locally, open `/join.html` and `/project-inquiries.html` directly.
+
+---
+
+## Build
+
+`tailwind.css` is compiled from `tailwind.input.css` and `tailwind.config.js`, which scans `*.html` and `script.js` for classes. After changing classes, rebuild and commit the result:
+
+```bash
+npx --yes tailwindcss@3.4.19 -i tailwind.input.css -o tailwind.css --minify --no-autoprefixer
+```
+
+There is no `package.json` on purpose: Workers Builds would install it and upload `node_modules` as public assets.
+
+Every deploy runs the build command in `wrangler.jsonc`: first `node scripts/check-faq.mjs`, which fails if the visible FAQ in `index.html` and its FAQPage JSON-LD differ, then the same Tailwind build. Either failure stops the deploy, and the previous version stays live.
 
 ---
 
@@ -28,33 +36,41 @@ Then open <http://localhost:8000>.
 
 ```
 .
-├── index.html          # The entire site (one page)
-├── styles.css          # Custom CSS on top of Tailwind
-├── script.js           # Nav, reveal animations, contact form
+├── index.html              # Homepage
+├── project-inquiries.html  # Client inquiry wizard
+├── join.html               # Team application wizard
+├── privacy.html            # Privacy policy
+├── styles.css              # Fonts, palette and components, linked before tailwind.css
+├── tailwind.css            # Compiled utilities (built and committed)
+├── tailwind.config.js      # Palette names and type scale (not served)
+├── tailwind.input.css      # Tailwind entry (not served)
+├── script.js               # Scroll line, form wizard
 ├── assets/
-│   └── logo.png        # The BYMD wordmark (used in nav, footer, and favicon)
-└── README.md
+│   ├── fonts/              # Self hosted Fraunces 600 and Archivo (OFL)
+│   ├── favicon.svg
+│   ├── logo.png            # Apple touch icon and JSON-LD logo
+│   └── og.jpg              # Link preview image
+├── scripts/                # check-faq.mjs, build-sitemap.mjs (not served)
+├── automation/             # n8n lead workflow docs (not served)
+└── wrangler.jsonc          # Cloudflare Workers config and deploy build
 ```
 
-To replace the logo, drop a new file at `assets/logo.png` — both the nav and footer references will pick it up automatically. To tweak its display size, adjust the `h-9` (nav) and `h-12` (footer) Tailwind classes on the `<img>` tags in `index.html`.
+The color values live once, in `styles.css` `:root`; `tailwind.config.js` points its color names at those variables.
 
 ---
 
-## Contact form
+## Forms
 
-Both forms (`/project-inquiries` for clients, `/join` for creatives) post to Web3Forms, which emails contact@bymaximade.com. An n8n automation then researches, labels and answers each lead — see `automation/README.md`.
+Both forms (`/project-inquiries` for clients, `/join` for creatives) post to Web3Forms, which emails contact@bymaximade.com. The access key sits in both pages and is public by design. If Web3Forms is unreachable, the form falls back to opening the visitor's email app.
 
-> Want submissions to arrive without opening the visitor's email client? Sign up for [Formspree](https://formspree.io) (free tier), then in `script.js` swap the `mailto:` block for a `fetch()` POST to the Formspree endpoint. ~5 lines of code.
+An n8n automation then researches, labels and answers each lead; see `automation/README.md`. It tells the two kinds apart by the email subject, so keep the substrings `project inquiry #` and `new application` in the subjects `script.js` builds, and keep every field `name`, `data-field` and chip `data-value` exactly as they are.
 
 ---
 
 ## Deploy
 
-The site is hosted on Cloudflare Workers (static assets, config in `wrangler.jsonc`) and connected to this GitHub repo. Every push to `main` deploys to https://bymaximade.com within about a minute. DNS is on Cloudflare; nothing else to configure.
-
-## Apply form
-
-The 5-step form posts to Web3Forms and lands in the studio Gmail inbox. The access key sits in `index.html` and is public by design. If Web3Forms is unreachable the form falls back to opening the visitor's email app.
+The site is hosted on Cloudflare Workers (static assets, config in `wrangler.jsonc`) and connected to this GitHub repo. Every push to `main` deploys to https://bymaximade.com within about a minute. DNS is on Cloudflare; nothing else to configure. `.assetsignore` keeps config, scripts and docs from being served.
 
 ## Sitemap
-sitemap.xml is generated by scripts/build-sitemap.mjs from each page's canonical tag, with lastmod from git. A GitHub Action reruns it on every push to main that touches an .html file. To keep a page out, add <meta name="robots" content="noindex">. Every other page needs a canonical tag or the build fails.
+
+`sitemap.xml` is generated by `scripts/build-sitemap.mjs` from each page's canonical tag, with lastmod from git. A GitHub Action reruns it on every push to main that touches an .html file. To keep a page out, add `<meta name="robots" content="noindex">`. Every other page needs a canonical tag or the build fails.

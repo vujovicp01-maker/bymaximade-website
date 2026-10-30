@@ -7,3 +7,8 @@ automation
 scripts
 .github
 CLAUDE.md
+tailwind.config.js
+tailwind.input.css
+.claude
+.claude-flow
+.gstack

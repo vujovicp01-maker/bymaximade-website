@@ -12,9 +12,10 @@ auto-sent after 3–10 min only for clear, real leads.
 
 ## Form contract
 n8n reads the fields from the Web3Forms notification's HTML (one bold label + value per
-field, label = field name). The subject decides the kind: `Your project inquiry #<ref> —
-bymaximade` is an inquiry, `… New application — …` an application. Changing field names or
-subjects means updating the n8n "Parse & dedupe" node too.
+field, label = field name). The subject decides the kind: "Parse & dedupe" matches
+`/project inquiry #([A-Z0-9]+)/i` for an inquiry (today `Your project inquiry #<ref> with byMaximade`)
+and `/new application/i` for an application (today `New application: <name> · <role> · <experience>`).
+Changing field names, or subjects so they lose those words, means updating that node too.
 
 ## Owner setup (once)
 1. web3forms.com: create an access key for contact@bymaximade.com; put it in both forms.

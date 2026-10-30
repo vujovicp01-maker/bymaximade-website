@@ -1,8 +1,7 @@
 /* ===========================================================
-   bymaximade — site interactions
-   - Nav scroll state, mobile menu, reveal-on-scroll
-   - Hero word reveal
-   - Apply wizard → Web3Forms (fallback: mailto)
+   byMaximade site interactions
+   - Scroll progress line (homepage)
+   - Apply wizard to Web3Forms (fallback: mailto)
    =========================================================== */
 
 (function () {
@@ -10,67 +9,21 @@
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ----- Nav scroll state + scroll progress line (homepage) -----
-  const nav = document.getElementById('nav');
+  // ----- Scroll progress line (homepage) -----
   const progress = document.getElementById('scroll-progress');
-  const onScroll = () => {
-    nav.classList.toggle('scrolled', window.scrollY > 24);
-    if (progress) {
+  if (progress) {
+    const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       progress.style.transform = `scaleX(${max > 0 ? Math.min(window.scrollY / max, 1) : 0})`;
-    }
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // ----- Mobile menu -----
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (menuToggle && mobileMenu) {
-    const setMenu = (open) => {
-      mobileMenu.classList.toggle('hidden', !open);
-      menuToggle.classList.toggle('is-open', open);
-      menuToggle.setAttribute('aria-expanded', String(open));
     };
-    menuToggle.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
-    mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
-
-  // ----- Reveal-on-scroll -----
-  const revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    // Armed at load, not now: the Tailwind CDN generates its CSS asynchronously, so before that
-    // the page has no real layout and every element measures as above the fold. Hiding a block
-    // that is below the fold is invisible to the visitor, so arming late costs nothing — and
-    // content is on screen the whole time instead of waiting on this script.
-    const arm = () => revealEls.forEach((el) => {
-      if (el.getBoundingClientRect().top > window.innerHeight) el.classList.add('pending');
-      io.observe(el);
-    });
-    if (document.readyState === 'complete') arm();
-    else window.addEventListener('load', arm, { once: true });
-  }
-
-  // ----- Hero word-by-word reveal -----
-  let wordIndex = 0;
-  document.querySelectorAll('.words').forEach((el) => {
-    wordIndex += Number(el.dataset.delay || 0);
-    el.innerHTML = el.textContent.trim().split(/\s+/)
-      .map((w) => `<span class="w" style="--i:${wordIndex++}">${w}</span>`)
-      .join(' ');
-  });
 
   // ----- Apply wizard -----
   const form = document.getElementById('apply-form');
   if (!form) return;
+  const isJoin = form.dataset.kind === 'join';
   const steps = Array.from(form.querySelectorAll('.step'));
   const TOTAL = steps.filter((s) => s.dataset.step !== 'done').length;
   const label = document.getElementById('step-label');
@@ -80,6 +33,7 @@
   const actions = document.getElementById('step-actions');
   const errorEl = document.getElementById('step-error');
   let current = 0;
+  let sending = false;
 
   const setError = (msg) => { errorEl.textContent = msg || ''; };
 
@@ -89,7 +43,7 @@
   const DETAIL_ERROR = {
     name: 'Add your name.',
     email: 'Add a valid email so we can reply.',
-    handle: 'Add your Instagram or website — we look before we reply.',
+    handle: 'Add your Instagram or website. We look before we reply.',
     brief: 'Tell us about the project. A couple of sentences is enough.',
   };
 
@@ -110,17 +64,21 @@
   form.querySelectorAll('.step[data-field]').forEach((step) => {
     const hidden = form.elements[step.dataset.field];
     const multi = step.hasAttribute('data-multi');
-    step.querySelectorAll('.chip').forEach((chip) => {
+    const chips = step.querySelectorAll('.chip');
+    chips.forEach((chip) => {
+      chip.setAttribute('aria-pressed', 'false');
       chip.addEventListener('click', () => {
         if (multi) {
           chip.classList.toggle('is-on');
         } else {
-          step.querySelectorAll('.chip').forEach((c) => c.classList.remove('is-on'));
+          chips.forEach((c) => c.classList.remove('is-on'));
           chip.classList.add('is-on');
         }
+        chips.forEach((c) => c.setAttribute('aria-pressed', String(c.classList.contains('is-on'))));
         hidden.value = Array.from(step.querySelectorAll('.chip.is-on')).map((c) => c.dataset.value).join(', ');
         setError('');
-        if (!multi) setTimeout(next, 180); // single-choice auto-advances
+        // Single-choice auto-advances, unless a quick second pick has already moved the wizard on.
+        if (!multi) { const at = current; setTimeout(() => current === at && next(), 180); }
       });
     });
   });
@@ -130,8 +88,11 @@
     if (field === 'details') {
       let firstBad = null;
       step.querySelectorAll('[required]').forEach((input) => {
-        const bad = !input.checkValidity() || (input.minLength > 0 && input.value.trim().length < input.minLength);
+        // checkValidity() passes a required field that holds only spaces, so blank after trim is bad too.
+        const bad = !input.checkValidity() || !input.value.trim() || (input.minLength > 0 && input.value.trim().length < input.minLength);
         input.classList.toggle('is-invalid', bad);
+        if (bad) input.setAttribute('aria-invalid', 'true');
+        else input.removeAttribute('aria-invalid');
         if (input.minLength > 0) updateNote(input, true);
         if (bad && !firstBad) firstBad = input;
       });
@@ -152,7 +113,8 @@
     const from = steps[current];
     const to = steps[index];
     const go = () => {
-      from.classList.remove('is-active', 'is-leaving');
+      // Every step, not just `from`: a quick Back during a transition would otherwise leave two showing.
+      steps.forEach((s) => s.classList.remove('is-active', 'is-leaving'));
       to.classList.add('is-active');
       current = index;
       const isDone = to.dataset.step === 'done';
@@ -160,9 +122,11 @@
       bar.style.width = `${Math.min(index + 1, TOTAL) / TOTAL * 100}%`;
       backBtn.classList.toggle('invisible', index === 0 || isDone);
       actions.classList.toggle('hidden', isDone);
-      nextBtn.firstChild.textContent = index === TOTAL - 1 ? 'Send my application ' : 'Continue ';
+      nextBtn.textContent = index === TOTAL - 1 ? (isJoin ? 'Send my application' : 'Send my inquiry') : 'Continue';
       setError('');
-      const focusable = to.querySelector('.chip, input, textarea');
+      // The done title takes focus so its message is read out. The step scrolls in first, so focus never lands under the header.
+      const focusable = isDone ? document.getElementById('done-title') : to.querySelector('.chip, input, textarea');
+      to.scrollIntoView({ block: 'nearest' });
       if (focusable) focusable.focus({ preventScroll: true });
     };
     if (reducedMotion || from === to) return go();
@@ -181,35 +145,43 @@
   backBtn.addEventListener('click', () => current > 0 && show(current - 1));
 
   form.addEventListener('keydown', (e) => {
-    const typing = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
-    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); next(); return; }
-    const chips = steps[current].querySelectorAll('.chip');
-    if (chips.length && !typing && /^[1-9]$/.test(e.key)) {
-      const chip = chips[Number(e.key) - 1];
+    // Enter advances only from a text field. On a chip or Back, the button's own Enter runs instead.
+    if (e.key === 'Enter' && e.target.tagName === 'INPUT') { e.preventDefault(); next(); return; }
+    // Number keys pick a chip only while focus is on one, so a stray digit elsewhere selects nothing.
+    if (e.target.classList.contains('chip') && /^[1-9]$/.test(e.key)) {
+      const chip = steps[current].querySelectorAll('.chip')[Number(e.key) - 1];
       if (chip) chip.click();
     }
   });
-  form.querySelectorAll('.field').forEach((f) => f.addEventListener('input', () => { f.classList.remove('is-invalid'); setError(''); }));
+  form.querySelectorAll('.field').forEach((f) => f.addEventListener('input', () => {
+    f.classList.remove('is-invalid');
+    f.removeAttribute('aria-invalid');
+    setError('');
+  }));
   form.addEventListener('submit', (e) => { e.preventDefault(); next(); });
 
   async function submit() {
+    // One send per visit: Enter or a click while "Sending…" would otherwise post the lead twice.
+    if (sending) return;
+    sending = true;
     const data = new FormData(form);
     const name = data.get('name').trim();
-    const isJoin = form.dataset.kind === 'join';
     // Unique per submission: Gmail never merges two leads into one conversation, and the
     // automation files the lead under it.
     const ref = Date.now().toString(36).slice(-6).toUpperCase();
+    // n8n detects the kind with /project inquiry #([A-Z0-9]+)/i and /new application/i: keep those substrings.
     if (isJoin) {
       const role = String(data.get('role') || '');
       const exp = String(data.get('experience') || '');
       const strong = exp === '3 – 5 years' || exp === '5+ years';
-      data.set('subject', `${strong ? '★ ' : ''}New application — ${name} · ${role} · ${exp}`);
+      data.set('subject', `${strong ? '★ ' : ''}New application: ${name} · ${role} · ${exp}`);
     } else {
       // The lead sees "Re: <this subject>" on our follow-up, so it stays neutral; triage lives
       // in Gmail labels and the automation's brief.
-      data.set('subject', `Your project inquiry #${ref} — bymaximade`);
+      data.set('subject', `Your project inquiry #${ref} with byMaximade`);
     }
     form.classList.add('is-sending');
+    nextBtn.setAttribute('aria-disabled', 'true');
     setError('Sending…');
 
     let sent = false;
@@ -230,10 +202,10 @@
     }
 
     document.getElementById('done-title').textContent = `Got it, ${name.split(' ')[0]}.`;
-    const doneOk = form.dataset.done || "We'll reply from contact@bymaximade.com within 24 hours. Not in your inbox? Check spam or promotions.";
+    const doneOk = form.dataset.done || 'We reply from contact@bymaximade.com within 24 hours with a scope and a price. If you don’t see it, check spam or promotions.';
     document.getElementById('done-text').textContent = sent
       ? doneOk
-      : 'Your email app should open with the application. Hit send and it reaches us.';
+      : 'Your email app should open with your message. Press send and it reaches us.';
     show(steps.length - 1);
   }
 })();

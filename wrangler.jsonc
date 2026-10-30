@@ -5,6 +5,10 @@
   "observability": {
     "enabled": true
   },
+  // Runs on every deploy: a FAQ that no longer matches its JSON-LD, or a failed CSS build, stops the deploy.
+  "build": {
+    "command": "node scripts/check-faq.mjs && npx --yes tailwindcss@3.4.19 -i tailwind.input.css -o tailwind.css --minify --no-autoprefixer"
+  },
   "assets": {
     "directory": "."
   },
